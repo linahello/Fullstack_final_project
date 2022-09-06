@@ -6,7 +6,7 @@ section {
   padding-top: 180px;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 1000px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -55,24 +55,40 @@ main {
   text-shadow: 3px 3px 4px black;
 }
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (max-width: 770px) {
+  main {
+    padding: 0;
+  }
+  main h4 {
+    padding: 0 50px 0 50px;
+  }
+  section {
+    height: 500px;
+  }
   #text_parallax {
     margin-top: 50px;
-    font-size: 80px;
+    font-size: 40px;
+    text-align: center;
   }
   #crowd {
-    top: 80vh;
+    margin-top: -100px;;
+  }
+  #musicians {
+    width: 200px;
+    height: 200px;
+    margin-top: 2vw;;
+    right: 40px;
   }
 }
 
 #crowd {
-  top: 65vh;
+  top: 70vh;
   z-index: 4;
 }
 #musicians {
-  width: 60%;
+  width: 45%;
   height:auto;
-  left: 35vh;
+  left:30vw;
   top: 30vh;
   z-index: 3;
 }

@@ -5,7 +5,6 @@ let cloud = document.getElementById('cloud');
 let cloud_right = document.getElementById('cloud_right');
 let crowd = document.getElementById('crowd');
 let text_parallax = document.getElementById('text_parallax');
-let nav = document.getElementById('nav');
 
 window.addEventListener('scroll', function() {
   var value = window.scrollY;
