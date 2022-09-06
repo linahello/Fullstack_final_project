@@ -1,0 +1,49 @@
+<section class="flex-grow-1">
+  <div class="container h-100 py-2">
+    <div class="mb-3">
+      <%= link_to "Retour", :back %>
+      <br>
+      <br>
+      <h3 class="mb-0 text-white">Je crée mon profil Artiste : </h3>
+    </div>
+    <div class="card rounded-3 mb-8">
+      <div class="card-body p-7 d-flex flex-sm-column flex-lg-row justify-content-around">
+        <div class="col-sm-12 col-md-5">
+          <form>
+            <fieldset>
+              <div class="form-group">
+                <label class="form-label mt-4" for="inputDefault">Mon nom d'artiste</label>
+                <input type="text" class="form-control" placeholder="Gypsy Kings est déjà pris!" id="inputDefault">
+              </div>
+              <div class="form-group">
+                <label for="exampleTextarea" class="form-label mt-4">Je me présente, en quelques mots :</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label mt-4" for="inputDefault">Code Postal</label>
+                <input type="text" class="form-control" placeholder="31000, 34000, 69001... " id="inputDefault">
+              </div>
+              <div class="form-group">
+                <label class="form-label mt-4" for="inputDefault">Ma ville</label>
+                <input type="text" class="form-control" placeholder="Toulouse, Montpellier, Lyon... les autres comptent aussi aussi!" id="inputDefault">
+              </div>
+              <!-- <div class="form-group">
+                <label for="formFile" class="form-label mt-4">Ma photo de profil</label>
+                <input class="form-control" type="file" id="formFile">
+              </div> -->
+              </br>
+              <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary">Je valide</button>
+              </div>
+            </fieldset>
+            </br>
+          </form>
+        </div>
+        <div class="card-body py-7">
+        <%= image_tag "artist_profile.jpg", style: "width: 500px; height: auto"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

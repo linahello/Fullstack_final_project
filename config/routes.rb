@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :artist_profiles
+
   get 'contact/show'
   get 'about/show'
   get 'home/index'
