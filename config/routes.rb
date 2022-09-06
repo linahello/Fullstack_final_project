@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   resources :artist_profiles
 
-=======
   get 'profile_selection/show'
->>>>>>> development
   get 'contact/show'
   get 'about/show'
   get 'home/index'
