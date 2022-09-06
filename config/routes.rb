@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'profile_selection/show'
   get 'contact/show'
   get 'about/show'
   get 'home/index'
