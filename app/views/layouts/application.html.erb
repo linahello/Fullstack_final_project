@@ -9,9 +9,8 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    <%=render '/layouts/navbar'%>
-
-    <%= yield %>
+  <body class="d-flex flex-column min-vh-100">
+      <%=render '/layouts/navbar'%>
+      <%= yield %>
   </body>
 </html>
