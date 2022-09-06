@@ -8,7 +8,7 @@ class CreateVenueProfiles < ActiveRecord::Migration[5.2]
       t.string :address
       t.string :zipcode
       t.string :city
-      t.belong_to :user
+      t.belongs_to :user
 
       t.timestamps
     end
