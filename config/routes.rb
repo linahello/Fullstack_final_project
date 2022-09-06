@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :venues_profiles
   resources :artist_profiles
 
   get 'profile_selection/show'
