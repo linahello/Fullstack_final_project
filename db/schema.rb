@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_06_124224) do
+ActiveRecord::Schema.define(version: 2022_09_06_131350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artist_genres", force: :cascade do |t|
+    t.bigint "artist_profile_id"
+    t.bigint "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_profile_id"], name: "index_artist_genres_on_artist_profile_id"
+    t.index ["genre_id"], name: "index_artist_genres_on_genre_id"
+  end
+
+  create_table "artist_profiles", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "zipcode"
+    t.string "city"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_artist_profiles_on_user_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,4 +56,20 @@ ActiveRecord::Schema.define(version: 2022_09_06_124224) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "venue_profiles", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "type_of_location"
+    t.integer "capacity"
+    t.string "address"
+    t.string "zipcode"
+    t.string "city"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_venue_profiles_on_user_id"
+  end
+
+  add_foreign_key "artist_genres", "artist_profiles"
+  add_foreign_key "artist_genres", "genres"
 end
