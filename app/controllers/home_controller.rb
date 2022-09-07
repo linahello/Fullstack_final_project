@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   def index
     if user_signed_in?
       if current_user.is_artist
-        redirect_to venues_profiles_path
+        redirect_to venue_profiles_path
       elsif current_user.is_venue
         redirect_to artist_profiles_path
       else

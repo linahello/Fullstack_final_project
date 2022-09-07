@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe "venues_profiles/new.html.erb", type: :view do
+RSpec.describe "venue_profiles/destroy.html.erb", type: :view do
   pending "add some examples to (or delete) #{__FILE__}"
 end
