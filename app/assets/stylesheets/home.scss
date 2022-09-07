@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-section {
+article {
   padding-top: 180px;
   position: relative;
   width: 100%;
@@ -12,7 +12,7 @@ section {
   justify-content: center;
   align-items: center;
 }
-section:before {
+article:before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -21,7 +21,7 @@ section:before {
   background: linear-gradient(to top, rgb(24, 1, 36), transparent);
   z-index: 10000;
 }
-section:after {
+article:after {
   content: '';
   position: absolute;
   top: 0;
@@ -31,7 +31,7 @@ section:after {
   z-index: 10000;
   mix-blend-mode: color;
 }
-section img {
+article img {
   position: absolute;
   top: 0;
   left: 0;
@@ -59,7 +59,7 @@ main {
   main h4 {
     padding: 0 50px 0 50px;
   }
-  section {
+  article {
     height: 450px;
   }
   #text_parallax {
