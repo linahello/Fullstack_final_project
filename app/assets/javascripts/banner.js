@@ -1,10 +1,10 @@
-let bg = document.getElementById('bg');
-let musicians = document.getElementById('musicians');
-let cloud_bg = document.getElementById('cloud_bg');
-let cloud = document.getElementById('cloud');
-let cloud_right = document.getElementById('cloud_right');
-let crowd = document.getElementById('crowd');
-let text_parallax = document.getElementById('text_parallax');
+var bg = document.getElementById('bg');
+var musicians = document.getElementById('musicians');
+var cloud_bg = document.getElementById('cloud_bg');
+var cloud = document.getElementById('cloud');
+var cloud_right = document.getElementById('cloud_right');
+var crowd = document.getElementById('crowd');
+var text_parallax = document.getElementById('text_parallax');
 
 document.addEventListener('DOMContentLoaded',, (event) => {
 window.addEventListener('scroll', function() {
