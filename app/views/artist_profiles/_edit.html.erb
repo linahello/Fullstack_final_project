@@ -14,22 +14,22 @@
           <fieldset>  
             <div class="form-group">
               <%= f.label :name, "Mon nom d'artiste", class: "form-label mt-4" %>
-              <%= f.text_field :name, class: "form-control", value: @user.name %>
+              <%= f.text_field :name, class: "form-control", value: @artist_profiles.name %>
             </div>
 
             <div class="form-group">
               <%= f.label :description, "Je me présente, en quelques mots :", class: "form-label mt-4" %>
-              <%= f.text_area :description, class: "form-control", value: @user.description %>
+              <%= f.text_area :description, class: "form-control", value: @artist_profiles.description %>
             </div> 
 
             <div class="form-group">
               <%= f.label :zipcode, "Code Postal", class: "form-label mt-4" %>
-              <%= f.text_field :zipcode, class: "form-control", value: @user.zipcode %>
+              <%= f.text_field :zipcode, class: "form-control", value: @artist_profiles.zipcode %>
             </div>
 
             <div class="form-group">
               <%= f.label :city, "Ma ville", class: "form-label mt-4" %>
-              <%= f.text_field :city, class: "form-control", value: @user.city %>
+              <%= f.text_field :city, class: "form-control", value: @artist_profiles.city %>
             </div>
 
             </br>
