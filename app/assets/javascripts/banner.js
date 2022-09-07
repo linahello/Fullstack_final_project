@@ -6,6 +6,7 @@ let cloud_right = document.getElementById('cloud_right');
 let crowd = document.getElementById('crowd');
 let text_parallax = document.getElementById('text_parallax');
 
+document.addEventListener('DOMContentLoaded',, (event) => {
 window.addEventListener('scroll', function() {
   var value = window.scrollY;
   bg.style.top = value * 0.5 + 'px';
@@ -14,3 +15,4 @@ window.addEventListener('scroll', function() {
   cloud.style.top = value * 0.15 + 'px';
   text_parallax.style.top = value + 'px';
 });
+};
