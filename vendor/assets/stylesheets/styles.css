@@ -3767,6 +3767,7 @@ textarea.form-control-lg {
   align-items: center;
   justify-content: space-between;
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
+  z-index: 10002;
 }
 .navbar > .container,
 .navbar > .container-fluid,
@@ -10882,7 +10883,7 @@ textarea.form-control-lg {
   }
 }
 body {
-  background-image: linear-gradient(90deg, #33b7e2, #5e62b0, #dc307c);
+  background-image: linear-gradient(90deg, #6BB2C9, #6B70C9, #BA6189)
 }
 
 .table-secondary {
