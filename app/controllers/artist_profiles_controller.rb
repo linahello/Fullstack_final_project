@@ -2,13 +2,15 @@ class ArtistProfilesController < ApplicationController
   #before_action :authenticate_user!, :check_user #-> routes to the login / signup if not authenticated
 
   def index
+    @artist_profiles = User.all
   end
 
   def show
-    @artist_profiles = User.find(params[:id])
+    @artist_profiles = User.find(params[:id]) #find_user
   end
 
   def new
+    @user = current_user
   end
 
   def create
