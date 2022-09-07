@@ -16,12 +16,12 @@
       <% if devise_mapping.rememberable? %>
         <div class="field form-check mt-2">
           <%= f.check_box :remember_me, class:"form-check-input" %>
-          <%= f.label :remember_me, class:"form-check-label" %>
+          <%= f.label :remember_me, "Rester connecté(e)", class:"form-check-label" %>
         </div>
       <% end %>
 
       <div class="actions my-2">
-        <%= f.submit "Log in", class:"btn btn-lg btn-primary" %>
+        <%= f.submit "Connexion", class:"btn btn-lg btn-primary" %>
       </div>
     <% end %>
 
