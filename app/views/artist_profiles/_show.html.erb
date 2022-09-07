@@ -11,16 +11,16 @@
     <div class="flex-column col-sm-11 col-lg-5 mx-2 mt-3">
       <div>
         <h2>Mon nom d'artiste ou de groupe: </h2>
-        <h2 class="text-center">YoupiBoys </h2>
+        <h2 class="text-center"><%= @artist_profile.name %> </h2>
       </div>  
       <div class="pt-2 pb-2">
         <h2>Ma description: </h2>
-        <p class="text-justify">Lorem ipsum dolor, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur accusamus nihil laboriosam aperiam, sapiente harum, sed, a vero quo tempore inventore officia ipsum nobis magni tempora assumenda veniam eum quam. sit amet consectetur adipisicing elit. Unde ut impedit porro veritatis at vero officiis esse voluptatem quod excepturi! Facilis reprehenderit facere delectus perspiciatis ut excepturi quia qui ea!</p>
+        <p class="text-justify"><%= @artist_profile.description%> </p>
       </div>  
       <div class= "pt-2">
         <h2>Ma ville et son code postal: </h2>
-        <h6>Ville: </h6>
-        <h6>code postal: </h6>
+        <h6>Ville: <%= @artist_profile.city%></h6>
+        <h6>code postal: <%= @artist_profile.zipcode%></h6>
       </div>          
       </div>
       <div class="align-items-center col-sm-11 col-lg-5 mx-2 my-auto">
