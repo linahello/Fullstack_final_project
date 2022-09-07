@@ -56,22 +56,16 @@ main {
 }
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (max-width: 770px) {
-  main {
-    padding: 0;
-  }
+
   main h4 {
     padding: 0 50px 0 50px;
   }
   section {
-    height: 500px;
+    height: 450px;
   }
   #text_parallax {
-    margin-top: 50px;
     font-size: 40px;
     text-align: center;
-  }
-  #crowd {
-    margin-top: -100px;;
   }
   #musicians {
     width: 200px;
