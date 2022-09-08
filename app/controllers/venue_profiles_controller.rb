@@ -36,6 +36,6 @@ class VenueProfilesController < ApplicationController
   private
 
   def venue_profile_params
-    params.permit(:name, :description, :type_of_location, :capacity, :adress, :zipcode, :city)
+    params.permit(:name, :description, :type_of_location, :capacity, :address, :zipcode, :city)
   end
 end
