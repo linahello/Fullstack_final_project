@@ -16,7 +16,13 @@
           <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon profil</div>
           <div class="dropdown-menu">
             <% if user_signed_in? %>
-              <%= link_to "Mon profil", contact_show_path, class: "dropdown-item"%>
+              <% if current_user.is_artist %>
+                <%= link_to "Mon profil", artist_profile_path(current_user.artist_profile.id), class: "dropdown-item"%>
+              <% elsif current_user.is_venue %>
+                <%= link_to "Mon profil", venue_profile_path(current_user.venue_profile.id), class: "dropdown-item"%>
+              <% else %>
+                <%= link_to "Mon profil", profile_selection_show_path, class: "dropdown-item"%>
+              <% end %>
               <div class="dropdown-divider"></div>
               <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %>
             <% else %>

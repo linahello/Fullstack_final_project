@@ -1,12 +1,12 @@
 class ArtistProfilesController < ApplicationController
-  #before_action :authenticate_user!, :check_user #-> routes to the login / signup if not authenticated
+  before_action :authenticate_user!
 
   def index
     @artist_profiles = ArtistProfile.all
   end
 
   def show
-    @artist_profile = ArtistProfile.find(params[:id])
+    @artist_profile = find_artist_profile
   end
 
   def new; end
@@ -16,19 +16,19 @@ class ArtistProfilesController < ApplicationController
     @artist_profile.user_id = current_user.id
     @artist_profile.save
     current_user.update(is_artist: true)
-    redirect_to venue_profiles_path
+    redirect_to new_artist_genre_path
   end
 
   def update
-    @artist_profile = ArtistProfile.find(params[:id])
+    @artist_profile = find_artist_profile
   end
 
   def edit
-    @artist_profile = ArtistProfile.find(params[:id])
+    @artist_profile = find_artist_profile
   end
 
   def destroy
-    @artist_profile = ArtistProfile.find(params[:id])
+    @artist_profile = find_artist_profile
     @artist_profile.destroy
     redirect_to root_path
   end
