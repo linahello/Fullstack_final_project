@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  
-  get 'artist_genres/create'
   resources :venue_profiles
   resources :artist_profiles
+  resources :artist_genres, only: %i[new create update]
 
   get 'profile_selection/show'
   get 'contact/show'
