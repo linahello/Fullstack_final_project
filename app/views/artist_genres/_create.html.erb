@@ -6,18 +6,142 @@
     <h3 class="mb-0 text-white">Mon style de musique </h3>
   </div>
 
-  <div class="card rounded-3 mb-8">
-    <div class="card-body d-flex flex-sm-column flex-lg-row flex-wrap justify-content-around">
-      <div class="flex-column col-sm-11 col-lg-5 mx-2">
-        <%= form_with url: artist_genres_create_path, method: :get, local: true do |f| %>
-       
-       
-       
-       
-       
-       
-        <% end %>
+  <div class="row"
+    <%= form_with url: artist_genres_create_path, method: :get, local: true do |f| %>
+      
+      <div class="col-sm6 col-lg-3 mb-3 mb-lg-5 ">
+        <div class="card-body">
+          <div class="d-flex justify-content-center my-2">
+            <%= f.submit "Afro", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Blues", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Bop", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Classique", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Country", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Dancehall", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Disco", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Electro", class: "btn btn-primary" %>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <div class="col-sm6 col-lg-3 mb-3 mb-lg-5">
+        <div class="card-body">
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Fado", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Flamenco", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Funk", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Gospel", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Hard rock", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Jazz", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Kompa", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Makossa", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm6 col-lg-3 mb-3 mb-lg-5">
+        <div class="card-body">
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Metal", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Musique latine", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "New wave", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Pop", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Punk", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Musique alternative", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Rap", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Raï", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm6 col-lg-3 mb-3 mb-lg-5">
+        <div class="card-body">
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Reggae", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Rock'n'roll", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "R'n'B", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Salsa", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Ska", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Soul", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Swing", class: "btn btn-primary" %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Zouk", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
   </div>
 </div>
+
+
+
+        
+          <div class="btn-group-vertical vstack gap-2 col-md-5 mx-auto">
+            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+            <label class="btn btn-primary">Afro</label>
+            
+            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+            <label class="btn btn-primary">Blues</label>
+
+            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+            <label class="btn btn-primary">Bop</label>
+            
+            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+            <label class="btn btn-primary">Classique</label>
+          </div> -->
