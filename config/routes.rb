@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'artist_genres/create'
   resources :venue_profiles
   resources :artist_profiles
 
