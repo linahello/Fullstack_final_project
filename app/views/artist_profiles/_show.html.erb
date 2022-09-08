@@ -15,7 +15,19 @@
         <div class="pt-2 pb-2">
           <h5 class="text-dark">Ma description: </h5>
           <p class="text-justify"><%= @artist_profile.description%> </p>
-        </div>  
+        </div>
+        <div class="pt-2 pb-2">
+          <h5 class="text-dark">Mes genres musicaux </h5>
+          <p class="text-justify">
+          <% @artist_profile.genres.each do |genre| %>
+            <%= genre.title %>
+          <% end %> </p>
+        </div>
+        <% if current_user.id == @artist_profile.user_id %>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <%= link_to "Modifier mes genres", new_artist_genre_path, class:"btn btn-secondary btn-sm" %>
+          </div>
+        <% end %>
         <div class= "pt-2">
           <h5 class="text-dark">Ma ville et son code postal: </h5>
           <p>Ville: <%= @artist_profile.city%></p>
@@ -27,10 +39,12 @@
           <p>Email: <%= @artist_profile.user.email%></p>
         </div>
 
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <%= link_to "Modifier mon profil", edit_artist_profile_path, class:"btn btn-secondary" %>
-          <%= link_to "Paramètres de mon compte", edit_user_registration_path, class:"btn btn-outline-secondary" %>
-        </div>  
+        <% if current_user.id == @artist_profile.user_id %>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <%= link_to "Modifier mon profil", edit_artist_profile_path, class:"btn btn-secondary" %>
+            <%= link_to "Paramètres de mon compte", edit_user_registration_path, class:"btn btn-outline-secondary" %>
+          </div>
+        <% end %>   
       </div>
       <div class="align-items-center col-sm-11 col-lg-5 mx-2 my-auto">
         <%= image_tag "artist_profile.jpg", style: "width: 100%"%>

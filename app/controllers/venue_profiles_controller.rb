@@ -21,6 +21,8 @@ class VenueProfilesController < ApplicationController
 
   def update
     @venue_profile = VenueProfile.find(params[:id])
+    @venue_profile.update(venue_profile_params)
+    redirect_to venue_profile_path(@venue_profile.id)
   end
 
   def edit
