@@ -14,9 +14,12 @@ class ArtistProfilesController < ApplicationController
   def create
     @artist_profile = ArtistProfile.new(artist_profile_params)
     @artist_profile.user_id = current_user.id
-    @artist_profile.save
-    current_user.update(is_artist: true)
-    redirect_to new_artist_genre_path
+    if @artist_profile.save
+      current_user.update(is_artist: true)
+      redirect_to new_artist_genre_path, success: 'Votre profile à bien été créé!'
+    else
+      redirect_to new_artist_profile_path, alert: 'Information manquante ou incorrecte'
+    end
   end
 
   def update
