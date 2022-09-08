@@ -21,6 +21,8 @@ class ArtistProfilesController < ApplicationController
 
   def update
     @artist_profile = find_artist_profile
+    @artist_profile.update(artist_profile_params)
+    redirect_to artist_profile_path(@artist_profile.id)
   end
 
   def edit
