@@ -12,7 +12,7 @@
         <li class="nav-item">
           <%= link_to "Nous contacter", contact_show_path, class:"nav-link" %>
         </li>
-        <li class="nav-item dropdown parallax">
+        <li class="nav-item dropdown  parallax">
           <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon profil</div>
           <div class="dropdown-menu">
             <% if user_signed_in? %>
@@ -36,4 +36,3 @@
     </div>
   </div>
 </nav>
-
