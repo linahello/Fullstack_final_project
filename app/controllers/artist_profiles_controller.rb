@@ -1,5 +1,5 @@
 class ArtistProfilesController < ApplicationController
-  #before_action :authenticate_user!, :check_user #-> routes to the login / signup if not authenticated
+  before_action :authenticate_user!
 
   def index
     @artist_profiles = ArtistProfile.all

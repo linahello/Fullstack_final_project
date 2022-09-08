@@ -23,14 +23,9 @@
             </div> 
 
             <div class="form-group">
-              <%= f.label :type_of_location, "Le type de mon établissement", class: "form-label mt-4" %>
-              <%= f.text_field :type_of_location, class: "form-control", placeholder: "Bar, restaurant..." %>
-            </div>
-
-            <div class="form-group">
               <%= f.label :type_if_location, "Le type de mon établissement", class: "form-label mt-4" %>
-              <%= f.select(:type_of_location, [ 'Bar', 'Restaurant', 'Brasserie', 'Hotel', 'Cabaret', 'Musée', 'Salle de danse', 'Salle de spectacles', "Établissement d'enseignement", "Établissement sportifs", "Salle de culte" ], {:include_blanck => "sélectionner un type"}, {class: "form-label mt-4"}) %>
-              </div>
+              <%= f.select(:type_of_location, [ 'Bar', 'Restaurant', 'Brasserie', 'Hotel', 'Cabaret', 'Musée', 'Salle de danse', 'Salle de spectacles', "Établissement d'enseignement", "Établissement sportifs", "Salle de culte" ], {}, { :class => "form-select", :id => "exampleSelect1" }) %>
+            </div>
 
             <div class="form-group">
               <%= f.label :capacity, "La capacité d'acceuil de mon établissement", class: "form-label mt-4" %>
