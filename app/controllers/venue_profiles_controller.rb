@@ -1,4 +1,6 @@
 class VenueProfilesController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @venue_profiles = VenueProfile.all
   end
