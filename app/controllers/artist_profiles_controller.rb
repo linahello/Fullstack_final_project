@@ -16,7 +16,7 @@ class ArtistProfilesController < ApplicationController
     @artist_profile.user_id = current_user.id
     @artist_profile.save
     current_user.update(is_artist: true)
-    redirect_to venue_profiles_path
+    redirect_to new_artist_genre_path
   end
 
   def update
