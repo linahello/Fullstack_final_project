@@ -11,7 +11,8 @@
 
   <body class="d-flex flex-column min-vh-100">
 
-    <%=render '/layouts/navbar'%>
+    <%= render '/layouts/navbar'%>
+    <%= render '/layouts/flash' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
     <!-- Bootstrap JavaScript Libraries -->
