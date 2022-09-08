@@ -15,7 +15,13 @@
             <h6 class="card-subtitle text-muted">capacité d'accueil: <%= venue.capacity %> personnes</h6>
           </div>
           <div class="card-body">
-            <p class="card-text"><%= venue.description %></p>
+            <p class="card-text">
+            <% if venue.description.length < 180 %>
+              <%= venue.description %>
+            <% else %>
+              <%= venue.description.byteslice(0, 177) %>...
+            <% end %>
+            </p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item border-bottom"><%= venue.address %></li>
