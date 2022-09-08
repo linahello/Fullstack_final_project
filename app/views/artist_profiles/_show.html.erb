@@ -21,6 +21,10 @@
         <h5 class="text-dark">Ma ville et son code postal: </h5>
         <p>Ville: <%= @artist_profile.city%></p>
         <p>code postal: <%= @artist_profile.zipcode%></p>
+      </div>       
+      <div class= "pt-2">
+        <h5 class="text-dark">Pour me contacter: </h5>
+        <p>Email: <%= @artist_profile.user.email%></p>
       </div>          
       </div>
       <div class="align-items-center col-sm-11 col-lg-5 mx-2 my-auto">
