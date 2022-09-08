@@ -3,7 +3,6 @@
     <%= link_to "Retour", :back %>
     <br>
     <br>
-    <h3 class="mb-0 text-white">Voici mon profil: </h3>
   </div>
 
 <div class="card rounded-3 mb-8">
@@ -23,7 +22,11 @@
         <h6>N° et type de voie: <%= @venue_profile.address%></h6>
         <h6>Ville: <%= @venue_profile.city%></h6>
         <h6>code postal: <%= @venue_profile.zipcode%></h6>
-      </div>          
+      </div>
+      <div>
+          <h5 class="text-dark pt-2">Pour me contacter: </h5>
+          <p>Email: <%= @venue_profile.user.email%></p>
+      </div>  
       </div>
       <div class="align-items-center col-sm-11 col-lg-5 mx-2 my-auto">
         <%= image_tag "venue.jpg", style: "width: 100%"%>
