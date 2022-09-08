@@ -16,7 +16,7 @@
           <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon profil</div>
           <div class="dropdown-menu">
             <% if user_signed_in? %>
-              <%= link_to "Mon profil", contact_show_path, class: "dropdown-item"%>
+              <%= link_to "Mon profil", root_path, class: "dropdown-item"%>
               <div class="dropdown-divider"></div>
               <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %>
             <% else %>
