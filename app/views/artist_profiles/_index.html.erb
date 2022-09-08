@@ -8,11 +8,15 @@
 
     <% @artist_profiles.each do |artist| %>
       <div class="col pb-3">
-        <div class="card border-light h-100">
+        <div class="card h-100">
           <h3 class="card-header"><%= artist.name %></h3>
           <div class="card-body">
             <h5 class="card-title">styles musicaux:</h5>
-            <h6 class="card-subtitle text-muted"><%= artist.genres.join(", ") %></h6>
+            <h6 class="card-subtitle text-muted">
+              <% artist.genres.each do |genre| %>
+                <%= genre.title %>
+              <% end %>
+            </h6>
           </div>
           <div class="card-body">
             <p class="card-text"><%= artist.description %></p>
