@@ -6,7 +6,7 @@ class ArtistProfilesController < ApplicationController
   end
 
   def show
-    @artist_profile = ArtistProfile.find(params[:id])
+    @artist_profile = find_artist_profile
   end
 
   def new; end
@@ -20,15 +20,15 @@ class ArtistProfilesController < ApplicationController
   end
 
   def update
-    @artist_profile = ArtistProfile.find(params[:id])
+    @artist_profile = find_artist_profile
   end
 
   def edit
-    @artist_profile = ArtistProfile.find(params[:id])
+    @artist_profile = find_artist_profile
   end
 
   def destroy
-    @artist_profile = ArtistProfile.find(params[:id])
+    @artist_profile = find_artist_profile
     @artist_profile.destroy
     redirect_to root_path
   end
