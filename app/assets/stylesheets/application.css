@@ -15,39 +15,34 @@
  *= require home
  *= require_self
  */
- #top_scroll {
-  display: inline-block;
-  background-color: #FF9800;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  border-radius: 4px;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  transition: background-color .3s, 
-    opacity .5s, visibility .5s;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 100000;
+ /* ------------ TOP SCROLL BUTTON ----------------------------*/
+ #scroll {
+  position:fixed;
+  right:80px;
+  bottom:80px;
+  cursor:pointer;
+  width:50px;
+  height:50px;
+  background-color:#C52B6F;
+  text-indent:-9999px;
+  display:none;
+  -webkit-border-radius:60px;
+  -moz-border-radius:60px;
+  border-radius:60px;
+  z-index:10008;
 }
-#top_scroll::after {
-  content: "\f077";
-  font-family: FontAwesome;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 2em;
-  line-height: 50px;
-  color: #fff;
+#scroll span {
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-left:-8px;
+  margin-top:-12px;
+  height:0;
+  width:0;
+  border:8px solid transparent;
+  border-bottom-color:#ffffff;
 }
-#top_scroll:hover {
-  cursor: pointer;
-  background-color: #333;
-}
-#top_scroll:active {
-  background-color: #555;
-}
-#top_scroll.show {
-  opacity: 1;
-  visibility: visible;
+#scroll:hover {
+  background-color:#A0C8E6;
+  opacity:1;
 }
