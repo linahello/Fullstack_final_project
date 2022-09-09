@@ -1,13 +1,21 @@
 class ArtistGenresController < ApplicationController
   def create
     ArtistGenre.create(artist_genre_params)
-    redirect_to new_artist_genre_path
+  
+    respond_to do |format|
+      format.html {redirect_to new_artist_genre_path}
+      format.js { }
+    end
   end
 
   def destroy
     @artist_genre = ArtistGenre.find(params[:id])
     @artist_genre.destroy
-    redirect_to new_artist_genre_path
+
+    respond_to do |format|
+      format.html {redirect_to new_artist_genre_path}
+      format.js { }
+    end
   end
 
   private

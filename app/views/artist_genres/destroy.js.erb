@@ -1,0 +1,5 @@
+var buttons = document.getElementsByClassName('row')[0]
+newbuttons = document.createElement('div')
+newbuttons.classList.add("row")
+newbuttons.innerHTML = "<%= j render 'buttons' %>"
+buttons.parentNode.replaceChild(newbuttons, buttons)
