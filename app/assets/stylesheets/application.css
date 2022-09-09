@@ -46,3 +46,13 @@
   background-color:#A0C8E6;
   opacity:1;
 }
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen and (max-width: 770px) {
+  #scroll {
+    width:40px;
+    height:40px;
+    right:30px;
+    bottom:30px;
+  }
+}
