@@ -1,0 +1,40 @@
+<aside class="pt-5 pb-5" style= "background-color: #928BA1">
+  <div class="card  text-dark m-auto" style="max-width: 1000px;">
+    <div class="row g-0 row-cols-1 row-cols-md-1">
+      <div class="col-md-4 ">
+        <%= image_tag 'mic.png', class: "img-fluid rounded-start p-2", alt:"..."%>
+      </div>
+      <div class="col-md-8 ">
+        <div class="card-body">
+          <h5 class="card-title display-5">Vous êtes musicien ? Besoin d'aide pour trouver des endroits où jouer ?</h5>
+          <p class="card-text">Ici vous avez accès à une liste mise à jour en temps réel des établissements qui font jouer des artistes! Bars, restaurants ou salles de concert, on aura ce que vous cherchez ! N'attendez plus, montez sur scène ! </p>
+          <p class="card-text p-2">
+          <div class="d-flex align-item-center justify-content-around">
+          <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary btn-lg px-5 mx-auto" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+<div class="bg-dark pt-5 pb-5">
+  <div class="card  text-dark m-auto" style="max-width: 1000px;">
+    <div class="row g-0 row-cols-1 row-cols-md-1">
+            <div class="col-md-8 ">
+        <div class="card-body">
+          <h5 class="card-title display-5">Vous possédez un établissement ? Venez trouver vos artistes !</h5>
+          <p class="card-text">Avoir accès aux renseignements concernant les musiciens, trouvez ceux qui animeront vos soirées !</p><br>
+          <p class="card-text">Ainsi vous pourrez voir leur styles musicaux et pleins d'autres choses à découvrir !</p>
+          <p class="card-text p-2">
+          <div class="d-flex align-item-center justify-content-around">
+          <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary btn-lg px-5 mx-auto" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <%= image_tag 'music_circle.png', class: "img-fluid rounded-start p-2", alt:"..."%>
+      </div>
+
+    </div>
+  </div>
+</div>

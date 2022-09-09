@@ -1,0 +1,39 @@
+<div class="container-fluid text-center py-3">
+  <h1>Commence à démarcher !</h1>
+  <p class="lead">Trouve l'établissement qui t'offrira ta prochaine scène</p>
+</div>
+
+<div class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
+  <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
+
+    <% @venue_profiles.each do |venue| %>
+      <div class="col pb-3">
+        <div class="card border-light h-100">
+          <h3 class="card-header"><%= venue.name %></h3>
+          <div class="card-body">
+            <h5 class="card-title"><%= venue.type_of_location %></h5>
+            <h6 class="card-subtitle text-muted">capacité d'accueil: <%= venue.capacity %> personnes</h6>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+            <% if venue.description.length < 180 %>
+              <%= venue.description %>
+            <% else %>
+              <%= venue.description.byteslice(0, 177) %>...
+            <% end %>
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item border-bottom"><%= venue.address %></li>
+            <li class="list-group-item border-bottom"><%= venue.zipcode %></li>
+            <li class="list-group-item"><%= venue.city %></li>
+          </ul>
+          <div class="card-body">
+            <%= link_to "détails", venue_profile_path(venue.id) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="container h-100 py-2">
+  <div class="mb-3">
+    <div class="mb-3">
+      <%= link_to "Retour", venue_profile_path %>
+    </div>
+    <h3 class="mb-0 text-white">Modifier mon profil Établissement : </h3>
+  </div>
+
+  <div class="card rounded-3 mb-5">
+    <div class="card-body d-flex flex-sm-column flex-lg-row flex-wrap justify-content-around">
+      <div class="flex-column col-sm-11 col-lg-5 mx-2">
+        <%= form_with(url: venue_profile_path(@venue_profile.id), method: "patch", local: true) do |f| %>
+
+          <fieldset>  
+            <div class="form-group">
+              <%= f.label :name, "Le nom de mon établissement", class: "form-label mt-4" %>
+              <%= f.text_field :name, class: "form-control", value: @venue_profile.name %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :description, "Je présente mon établissement, en quelques mots :", class: "form-label mt-4" %>
+              <%= f.text_area :description, class: "form-control", value: @venue_profile.description %>
+            </div> 
+
+
+            <div class="form-group">
+              <%= f.label :type_of_location, "Le type de mon établissement", class: "form-label mt-4" %>
+              <%= f.select(:type_of_location, [ "Bar", "Restaurant", "Brasserie", "Hotel", "Cabaret", "Musée", "Salle de danse", "Salle de spectacles", "Établissement d'enseignement", "Établissement sportifs", "Salle de culte" ], {:selected => @venue_profile.type_of_location}, {:class => "form-select"}) %>
+              </div>
+
+            <div class="form-group">
+              <%= f.label :capacity, "La capacité d'acceuil de mon établissement", class: "form-label mt-4" %>
+              <%= f.number_field :capacity, class: "form-control", value: @venue_profile.capacity %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :address, "Où se trouve mon établissement", class: "form-label mt-4" %>
+              <%= f.text_field :address, class: "form-control", value: @venue_profile.address %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :zipcode, "Code Postal", class: "form-label mt-4" %>
+              <%= f.text_field :zipcode, class: "form-control", value: @venue_profile.zipcode %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :city, "Ma ville", class: "form-label mt-4" %>
+              <%= f.text_field :city, class: "form-control", value: @venue_profile.city %>
+            </div>
+
+
+            <div class="d-flex justify-content-center mt-4 mb-4">
+              <%= f.submit "Modifier mon profil", class: "btn btn-primary" %>
+            </div>
+            
+          </fieldset>
+        <% end %>
+      </div>
+      <div class="align-items-center col-sm-11 col-lg-5 mx-2 my-auto">
+        <%= image_tag "edit_venue.jpg", style: "width: 100%"%>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<% Genre.all.each do |genre| %>
+  <div class="col-sm6 col-lg-3 mb-2">
+    <% if current_user.artist_profile.genres.include?(genre) %>
+      <%= link_to "#{genre.title}", artist_genre_path(find_artist_genre(genre)), method: :delete, remote: true, class: "btn btn-primary btn-lg w-100" %>
+    <% else %>
+      <%= button_to "#{genre.title}", artist_genres_path, remote: true, class: "btn btn-secondary btn-lg w-100", params: { genre_id: genre.id, artist_profile_id: current_user.artist_profile.id } %>
+    <% end %>
+  </div>
+<% end %>

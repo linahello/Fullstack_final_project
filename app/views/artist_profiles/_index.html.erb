@@ -1,0 +1,36 @@
+<div class="container-fluid text-center py-3">
+  <h1>Qui va jouer ?</h1>
+  <p class="lead">Trouve l'artiste qui va jouer lors de ton prochain évènement</p>
+</div>
+
+<div class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
+  <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
+
+    <% @artist_profiles.each do |artist| %>
+      <div class="col pb-3">
+        <div class="card border-light h-100">
+          <h3 class="card-header"><%= artist.name %></h3>
+          <div class="card-body">
+            <h5 class="card-title">styles musicaux:</h5>
+            <h6 class="card-subtitle text-muted">
+              <% artist.genres.each do |genre| %>
+                <%= genre.title %>
+              <% end %>
+            </h6>
+          </div>
+          <div class="card-body">
+            <p class="card-text"><%= artist.description %></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item border-bottom"><%= artist.zipcode %></li>
+            <li class="list-group-item"><%= artist.city %></li>
+          </ul>
+          <div class="card-body">
+            <%= link_to "détails", artist_profile_path(artist.id) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>

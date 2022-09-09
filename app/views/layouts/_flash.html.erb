@@ -1,0 +1,9 @@
+<% flash.each do |type, msg| %>
+    <div class="col-lg-12">
+      <div class="alert alert-dismissible <%= bootstrap_class_for_flash(type) %>">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <h4 class="alert-heading"><%= bootstrap_title_for_flash(type) %></h4>
+        <p class="mb-0"><%= msg %>.</p>
+      </div>
+    </div>
+<% end %>

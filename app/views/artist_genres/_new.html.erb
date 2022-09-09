@@ -1,0 +1,22 @@
+<div class="container h-100 py-2">
+  <div class="mb-3">
+    <h3 class="mb-4 text-white">Mon style de musique </h3>
+  </div>
+
+  <div class="row">
+    <% Genre.all.each do |genre| %>
+      <div class="col-sm6 col-lg-3 mb-2">
+        <% if current_user.artist_profile.genres.include?(genre) %>
+          <%= link_to "#{genre.title}", artist_genre_path(find_artist_genre(genre)), method: :delete, remote: true, class: "btn btn-primary btn-lg w-100" %>
+        <% else %>
+          <%= button_to "#{genre.title}", artist_genres_path, remote: true, class: "btn btn-secondary btn-lg w-100", params: { genre_id: genre.id, artist_profile_id: current_user.artist_profile.id } %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="container my-3 text-center">
+     <%= link_to "J'ai terminé !", venue_profiles_path, class: "btn btn-success btn-lg w-50" %>
+  </div>
+</div>
+
