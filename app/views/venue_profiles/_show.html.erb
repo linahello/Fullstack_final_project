@@ -1,29 +1,27 @@
 <div class="container h-100 py-2">
-  <div class="mb-3">
-    <%= link_to "Retour", :back %>
-    <br>
-    <br>
+  <div class="mb-4">
+    <%= link_to "Retour index", artist_profiles_path %>
   </div>
 
-<div class="card rounded-3 mb-8">
-  <div class="card-body d-flex flex-sm-column flex-lg-row flex-wrap justify-content-around">
-    <div class="flex-column col-sm-11 col-lg-5 mx-2 mt-3">
-      <div>
-        <h3 class= "text-dark">Le nom de mon établissement: </h3>
-        <h2><%= @venue_profile.name %></h2>
-      </div>  
-      <div class="pt-2 pb-2">
-        <h6>Ma description: <%= @venue_profile.description%> </h6>
-        <h6>Le type de mon établissement:  <%= @venue_profile.type_of_location%></h6>
-        <h6>La capacité d'accueil de mon établissement: <%= @venue_profile.capacity%> places disponibles</h6>
-      </div>  
-      <div class= "pt-2">
-        <h3 class= "text-dark">Les coordonnées de mon établissement: </h3>
-        <h6>N° et type de voie: <%= @venue_profile.address%></h6>
-        <h6>Ville: <%= @venue_profile.city%></h6>
-        <h6>code postal: <%= @venue_profile.zipcode%></h6>
-      </div>
-      <div>
+  <div class="card rounded-3 mb-5">
+    <div class="card-body d-flex flex-sm-column flex-lg-row flex-wrap justify-content-around">
+      <div class="flex-column col-sm-11 col-lg-5 mx-2 my-auto">
+        <div>
+          <h5 class= "text-dark pt-2">Le nom de mon établissement: </h5>
+          <h4 class=" pb-2"><%= @venue_profile.name %> </h4>
+        </div>  
+        <div class="pt-2 pb-2">
+          <h6>Ma description: <%= @venue_profile.description%> </h6>
+          <h6>Le type de mon établissement:  <%= @venue_profile.type_of_location%></h6>
+          <h6>La capacité d'accueil de mon établissement: <%= @venue_profile.capacity%> places disponibles</h6>
+        </div>  
+        <div class= "pt-2">
+          <h3 class= "text-dark">Les coordonnées de mon établissement: </h3>
+          <h6>N° et type de voie: <%= @venue_profile.address%></h6>
+          <h6>Ville: <%= @venue_profile.city%></h6>
+          <h6>code postal: <%= @venue_profile.zipcode%></h6>
+        </div>
+        <div>
           <h5 class="text-dark pt-2">Pour me contacter: </h5>
           <p>Email: <%= @venue_profile.user.email%></p>
       </div>  
@@ -31,9 +29,9 @@
       <div class="d-flex justify-content-between align-items-center mb-3">
         <%= link_to "Modifier mon profil", edit_venue_profile_path, class:"btn btn-secondary" %>
         <%= link_to "Paramètres de mon compte", edit_user_registration_path, class:"btn btn-danger" %>
-      </div> 
-      <% end %>
       </div>
+        <% end %>   
+      </div> 
       <div class="align-items-center col-sm-11 col-lg-5 mx-2 my-auto">
         <%= image_tag "venue.jpg", style: "width: 100%"%>
       </div>
