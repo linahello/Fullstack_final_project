@@ -14,9 +14,12 @@ class VenueProfilesController < ApplicationController
   def create
     @venue_profile = VenueProfile.new(venue_profile_params)
     @venue_profile.user_id = current_user.id
-    @venue_profile.save
-    current_user.update(is_venue: true)
-    redirect_to artist_profiles_path
+    if @artist_profile.save
+      current_user.update(is_venue: true)
+      redirect_to artist_profiles_path, success: 'Votre profil à bien été créé!'
+    else
+      redirect_to new_venue_profile_path, alert: 'Information manquante ou incorrecte'
+    end
   end
 
   def update
