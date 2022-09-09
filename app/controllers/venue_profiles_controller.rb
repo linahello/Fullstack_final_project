@@ -6,7 +6,7 @@ class VenueProfilesController < ApplicationController
   end
 
   def show
-    @venue_profile = VenueProfile.find(params[:id])
+    @venue_profile = find_venue_profile
   end
 
   def new; end
@@ -20,17 +20,17 @@ class VenueProfilesController < ApplicationController
   end
 
   def update
-    @venue_profile = VenueProfile.find(params[:id])
+    @venue_profile = find_venue_profile
     @venue_profile.update(venue_profile_params)
     redirect_to venue_profile_path(@venue_profile.id)
   end
 
   def edit
-    @venue_profile = VenueProfile.find(params[:id])
+    @venue_profile = find_venue_profile
   end
 
   def destroy
-    @venue_profile = VenueProfile.find(params[:id])
+    @venue_profile = find_venue_profile
     @venue_profile.destroy
     redirect_to root_path
   end
