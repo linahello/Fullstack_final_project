@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2022_09_12_081014) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
+
   create_table "applications", force: :cascade do |t|
     t.bigint "performance_id"
     t.bigint "artist_profile_id"

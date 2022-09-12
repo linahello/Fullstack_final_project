@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :venue_profiles
-  resources :artist_profiles
+  resources :artist_profiles do
+    resources :artistpicts, only: [:create]
+  end
   resources :artist_genres, only: %i[new create destroy]
 
   get 'profile_selection/show'

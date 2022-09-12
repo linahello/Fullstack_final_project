@@ -8,5 +8,5 @@ class ArtistProfile < ApplicationRecord
   has_many :genres, through: :artist_genres
   has_many :applications
   has_many :performances, through: :applicaitons
-  has_one_attached :artistpic
+  has_one_attached :artistpict
 end
