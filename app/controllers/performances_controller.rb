@@ -6,6 +6,7 @@ class PerformancesController < ApplicationController
 
   def new
   end
+  
 
   def create
     @performance = Performance.new(performance_params)
@@ -18,6 +19,10 @@ class PerformancesController < ApplicationController
   end
 
   def edit
+    @performance = find_performance
+  end
+
+  def show
     @performance = find_performance
   end
 
