@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'applications/new'
+  get 'applications/create'
+  get 'applications/update'
   resources :venue_profiles do
     resources :venuepicts, only: [:create]
   end
