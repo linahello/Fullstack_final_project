@@ -1,6 +1,10 @@
 <div class="container h-100 py-2">
   <div class="mb-4">
-    <%= link_to "Retour index", root_path %>
+    <% if current_user.is_artist %>
+      <%= link_to "Retour", performances_path %>
+    <% else %>
+      <%= link_to "Retour", dashboard_path(current_user.id) %>
+    <% end %>
   </div>
 
   <div class="card rounded-3 mb-5">
@@ -17,7 +21,7 @@
         </div>
 
         <div class="pt-2 pb-2">
-          <h5 class="text-dark">Mes genres musicaux </h5>
+          <h5 class="text-dark">Les genres musicaux recherchés: </h5>
           <p class="text-justify">
           <% @performance.genres.each do |genre| %>
             <%= genre.title %>
@@ -31,18 +35,18 @@
           <% end %>
         <% end %>
         <div class="pt-2 pb-2">
-          <h5 class="text-dark">Lieu : </h5>
-          <p class="text-justify"><%= @performance.venue_profile.city %> </p>
+          <h5 class="text-dark">Lieu: </h5>
+          <p class="text-justify"><%= @performance.venue_profile.city %> (<%= @performance.venue_profile.zipcode.byteslice(0,2) %>)</p>
         </div>
 
         <div class= "pt-2">
-          <h5 class="text-dark">Date de la performance </h5>
-          <p> <%= @performance.date%></p>
+          <h5 class="text-dark">Date de la performance: </h5>
+          <p>Le <%= @performance.date.strftime("%d/%m/%Y à %H:%M")%></p>
         </div> 
         
         <div class= "pt-2">
           <h5 class="text-dark">Durée: </h5>
-          <p> <%= @performance.duration%></p>
+          <p> <%= @performance.duration%> minutes</p>
         </div>
 
         <div class= "pt-2">

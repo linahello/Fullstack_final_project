@@ -21,17 +21,16 @@
           <% end %>
           <div class="card-body">
             <p class="card-text">
-            <% if venue.description.length < 180 %>
+            <% if venue.description.length < 90 %>
               <%= venue.description %>
             <% else %>
-              <%= venue.description.byteslice(0, 177) %>...
+              <%= venue.description.byteslice(0, 87) %>...
             <% end %>
             </p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item border-bottom"><%= venue.address %></li>
-            <li class="list-group-item border-bottom"><%= venue.zipcode %></li>
-            <li class="list-group-item"><%= venue.city %></li>
+            <li class="list-group-item"><%= venue.zipcode %>, <%= venue.city %></li>
           </ul>
           <div class="card-body">
             <%= link_to "détails", venue_profile_path(venue.id) %>
