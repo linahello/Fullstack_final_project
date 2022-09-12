@@ -8,7 +8,7 @@ class VenueProfile < ApplicationRecord
   validates :city, presence: true
   validates :zipcode, presence: true, format: { with: /\A(([0-8][0-9])|(9[0-5])|(2[ab]))[0-9]{3}\z/, message: 'Code postal invalide' }
   has_many :performances, dependent: :destroy
-  has_one_attached :venuepict
+  has_one_attached :venuepict, dependent: :destroy
   validate :venuepict_format
 
   def resize_image
