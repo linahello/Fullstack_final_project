@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :performances
   resources :artist_genres, only: %i[new create destroy]
+  resources :dashboards, only: [:show]
 
   get 'profile_selection/show'
   get 'contact/show'
