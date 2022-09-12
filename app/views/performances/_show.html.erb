@@ -16,20 +16,31 @@
           <p class="text-justify"><%= @performance.description%> </p>
         </div>
 
+        <div class="pt-2 pb-2">
+          <h5 class="text-dark">Lieu : </h5>
+          <p class="text-justify"><%= @performance.venue_profile.city %> </p>
+        </div>
+
         <div class= "pt-2">
           <h5 class="text-dark">Date de la performance </h5>
-          <p>Email: <%= @performance.date%></p>
+          <p> <%= @performance.date%></p>
         </div> 
         
         <div class= "pt-2">
           <h5 class="text-dark">Durée: </h5>
-          <p>Email: <%= @performance.duration%></p>
+          <p> <%= @performance.duration%></p>
         </div>
 
         <div class= "pt-2">
           <h5 class="text-dark">Type: </h5>
-          <p>Email: <%= @performance.type%></p>
+          <% if @performance.public_event? %>
+            <p>Évènement public</p>
+          <% else %>
+            <p>Évènement privé</p>
+          <% end %>
         </div>  
+
+
 
       </div>
       <div class="align-items-center col-sm-11 col-lg-5 mx-2 my-auto">

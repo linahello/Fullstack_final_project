@@ -33,8 +33,8 @@
             </div>
 
             <div class="form-group">
-              <%= f.label :type, "Type", class: "form-label mt-4" %>
-              <%= f.text_field :type, class: "form-control", value: @performance.type %>
+              <%= f.label :type_of_event, "Type d'évènement", class: "form-label mt-4" %>
+              <%= f.select(:type_of_event, [["Public", :public_event], ["Privé", :private_event]], {}, { :class => "form-select", :id => "exampleSelect1" }) %>
             </div>
 
             <div class="d-flex justify-content-center mt-4 mb-2">
