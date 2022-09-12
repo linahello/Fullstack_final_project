@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 2022_09_12_081014) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
+  create_table "applications", force: :cascade do |t|
+    t.bigint "performance_id"
+    t.bigint "artist_profile_id"
+    t.text "message"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_profile_id"], name: "index_applications_on_artist_profile_id"
+    t.index ["performance_id"], name: "index_applications_on_performance_id"
+  end
 
   create_table "artist_genres", force: :cascade do |t|
     t.bigint "artist_profile_id"
@@ -60,6 +70,28 @@ ActiveRecord::Schema.define(version: 2022_09_12_081014) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "performance_genres", force: :cascade do |t|
+    t.bigint "performance_id"
+    t.bigint "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_performance_genres_on_genre_id"
+    t.index ["performance_id"], name: "index_performance_genres_on_performance_id"
+  end
+
+  create_table "performances", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "date"
+    t.integer "duration"
+    t.integer "type"
+    t.bigint "venue_profile_id"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["venue_profile_id"], name: "index_performances_on_venue_profile_id"
   end
 
   create_table "users", force: :cascade do |t|
