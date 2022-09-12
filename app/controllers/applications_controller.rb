@@ -7,7 +7,7 @@ class ApplicationsController < ApplicationController
    @application = Application.new(application_params)
   @application.update(artist_profile_id: current_user.artist_profile.id)
   @application.save!
-  redirect_to dashboard_path
+  redirect_to dashboard_path(current_user.id)
   end
 
   def update
