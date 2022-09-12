@@ -14,6 +14,11 @@
             <h5 class="card-title"><%= venue.type_of_location %></h5>
             <h6 class="card-subtitle text-muted">capacité d'accueil: <%= venue.capacity %> personnes</h6>
           </div>
+          <% if venue.venuepict.attached? %>
+            <%= image_tag venue.venuepict, alt: "venue picture", style: "width: 100%"%>
+          <% else %>
+            <p>🖼  Il n'y a pas encore d'image pour ce profil</p>
+          <% end %>
           <div class="card-body">
             <p class="card-text">
             <% if venue.description.length < 180 %>
