@@ -1,0 +1,40 @@
+<div class="container-fluid text-center py-3">
+  <h1>Où performer ?</h1>
+  <p class="lead">Trouve le prochain évènement où tu feras vibrer le public !</p>
+</div>
+
+<div class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
+  <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
+
+    <% @performances.each do |performances| %>
+      <div class="col pb-3">
+        <div class="card border-light h-100">
+          <h3 class="card-header"><%= performances.name %></h3>
+          <div class="card-body">
+            <h5 class="card-title"><%= performances.venue_profile.city %></h5>
+            <h6 class="card-subtitle text-muted">Date: <%= performances.date %></h6>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              <% if performances.description.length < 180 %>
+                <%= performances.description %>
+              <% else %>
+                <%= performances.description.byteslice(0, 177) %>...
+              <% end %>
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item border-bottom">Performance de <%= performances.duration %> minutes</li>
+            </li>
+          </ul>
+            <div class="card-body">
+            <%= link_to "détails", performance_path(performances.id) %>
+          </div>
+          
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
