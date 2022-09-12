@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :venue_profiles
+  get 'venuepicts/create'
+  resources :venue_profiles do
+    resources :venuepicts, only: [:create]
+  end
   resources :artist_profiles do
     resources :artistpicts, only: [:create]
   end
