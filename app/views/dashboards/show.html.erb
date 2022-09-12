@@ -1,0 +1,5 @@
+<% if current_user.is_artist %>
+  <%= render "artist" %>
+<% elsif current_user.is_venue %>
+  <%= render "venue" %>
+<% end %>

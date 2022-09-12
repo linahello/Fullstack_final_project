@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_12_081014) do
+ActiveRecord::Schema.define(version: 2022_09_12_105310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2022_09_12_081014) do
     t.text "description"
     t.datetime "date"
     t.integer "duration"
-    t.integer "type"
+    t.integer "type_of_event"
     t.bigint "venue_profile_id"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
