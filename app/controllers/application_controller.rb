@@ -4,5 +4,6 @@ class ApplicationController < ActionController::Base
   include ArtistProfilesHelper
   include VenueProfilesHelper
   include PerformancesHelper
+  include DashboardsHelper
   add_flash_types :info, :error, :success, :alert
 end

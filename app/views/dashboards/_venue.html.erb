@@ -1,87 +1,37 @@
-<div class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
-  <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
-    <div class="card mx-2">
-      <div class="card-body">
-        <h4 class="card-title">Mes évènements prévus</h4>
-        <h6 class="card-subtitle mb-2 text-muted"></h6>
-        <p class="card-text">Aller voir la liste des évènements déja organisés et leurs details.</p>
-        <%= link_to "card link", class:"card-link" %>
+<div class="container-fluid text-center py-3 mt-2">
+  <h1>Bienvenue sur votre espace !</h1>
+    <%= link_to "Creer un nouvel évènement", new_performance_path, class:"btn btn-secondary btn-lg px-5 my-3 mx-1" %>
+  <p class="lead">Naviguez grace au menus ci-dessous !</p>
+</div>
+<div class="container mt-2 pt-lg-2 pb-5">
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Mes évènements prévus
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+        <div class="accordion-body">
+          <strong>Voici la liste des évènements que vous avez prévu</strong>
+        </div>
       </div>
     </div>
-    <div class="card mx-2">
-      <div class="card-body">
-        <h4 class="card-title">Creer un nouvel évènement</h4>
-        <h6 class="card-subtitle mb-2 text-muted"> Organiser un nouvel évènement</h6>
-        <p class="card-text">Pour organiser un évènement et permettre a des artistes de voir et postuler a vôtre soirée.</p>
-        <%= link_to "cliquez ici", class:"card-link" %>
-      </div>
-    </div>
-    <div class="card mx-2">
-      <div class="card-body">
-        <h4 class="card-title">Voir mon profil</h4>
-        <p class="card-text">Acceder a mon profil</p>
-        <%= link_to "clique ici", venue_profile_path, class:"card-link" %>
-      </div>
-    </div>
-    <div class="card mx-2">
-      <div class="card-body">
-        <h4 class="card-title">Voir mes messages</h4>
-        <h6 class="card-subtitle mb-2 text-muted"></h6>
-        <p class="card-text">Acceder a ma boite de reception, afficher et envoyer des messages aux utilisateurs</p>
-        <%= link_to "card link", class:"card-link" %>
-      </div>
-    </div>
-    <div class="card mx-2">
-      <div class="card-body">
-        <h4 class="card-title">Index des artistes</h4>
-        <h6 class="card-subtitle mb-2 text-muted"></h6>
-        <p class="card-text">Acceder a la page principale. Retrouver la liste des artistes inscrits et commencer votre recherche !</p>
-        <%= link_to "card link", class:"card-link" %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Nouveaux messages
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
+        <div class="accordion-body">
+          <strong><%= link_to "boite de récèption" %></strong> Nouveaux messages reçus ici.
+        </div>
       </div>
     </div>
   </div>
-  <div class="d-flex justify-content-between align-items-center mb-3 flex-sm-column flex-lg-row flex-wrap">
-    <%= link_to "Paramètres de mon compte", edit_user_registration_path, class:"btn btn-danger my-1" %>
+  <div class="d-flex justify-content-evenly align-items-center flex-sm-column flex-lg-row flex-wrap">
+    <%= link_to "Voir mon profil", venue_profile_path, class:"btn btn-secondary btn-lg px-4 mt-3 mt-lg-5" %>
+    <%= link_to "Voir la liste des Artistes", root_path, class:"btn btn-lg btn-info px-2 px-lg-4 mt-3 mt-lg-5" %>
   </div>
 </div>
-
-
-<div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-        Mes évènements prévus
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
-      <div class="accordion-body">
-        <strong>Voici la liste des évènements que vous avez prévu</strong> <%= current_user.venue_profile.performances.all %> <--
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Accordion Item #2
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
-      <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Accordion Item #3
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
-      <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-</div>
-
