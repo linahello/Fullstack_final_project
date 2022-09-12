@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   resources :artist_profiles do
     resources :artistpicts, only: [:create]
   end
-  resources :performances
+  resources :performances do
+    resources :performance_genres, only: %i[new create destroy]
+    resources :applications, only: %i[new create update]
+  end
   resources :artist_genres, only: %i[new create destroy]
   resources :dashboards, only: [:show]
+  
 
   get 'profile_selection/show'
   get 'contact/show'

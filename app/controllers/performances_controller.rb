@@ -12,7 +12,7 @@ class PerformancesController < ApplicationController
     @performance = Performance.new(performance_params)
     @performance.venue_profile_id = current_user.venue_profile.id
     if @performance.save
-      redirect_to dashboard_path, success: 'La performance à bien été créée!'
+      redirect_to new_performance_performance_genre_path(@performance.id), success: 'La performance à bien été créée!'
     else
       redirect_to new_performance_path, alert: 'Information manquante ou incorrecte'
     end
