@@ -1,4 +1,5 @@
 class PerformancesController < ApplicationController
+  before_action :authorize_venue, only: %i[new create edit update destroy]
   def index
     @performances = Performance.all
   end
@@ -39,6 +40,6 @@ class PerformancesController < ApplicationController
   private
 
   def performance_params
-    params.permit(:name, :description, :date, :duration, :type)
+    params.permit(:name, :description, :date, :duration, :type_of_event)
   end
 end
