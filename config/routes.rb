@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :performances do
     resources :performance_genres, only: %i[new create destroy]
+    resources :applications, only: %i[new create update]
   end
   resources :artist_genres, only: %i[new create destroy]
   resources :dashboards, only: [:show]

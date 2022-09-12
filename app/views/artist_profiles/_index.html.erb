@@ -18,6 +18,11 @@
               <% end %>
             </h6>
           </div>
+            <% if artist.artistpict.attached? %>
+              <%= image_tag artist.artistpict, alt: "aritst picture", style: "width: 100%"%>
+            <% else %>
+              <p>🖼  Il n'y a pas encore d'image pour ce profil</p>
+            <% end %>
           <div class="card-body">
             <p class="card-text">
               <% if artist.description.length < 180 %>
