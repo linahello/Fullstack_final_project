@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :performances
   resources :venue_profiles
   resources :artist_profiles
   resources :artist_genres, only: %i[new create destroy]
