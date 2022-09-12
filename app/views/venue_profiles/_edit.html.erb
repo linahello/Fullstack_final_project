@@ -50,6 +50,10 @@
                 <%= f.text_field :city, class: "form-control", value: @venue_profile.city %>
               </div>
 
+              <div class="form-group">
+              <%= f.label :venuepict, "Image", class: "form-label mt-4"%>
+               <%= f.file_field :venuepict, class:"form-control" %>
+              </div>
 
               <div class="d-flex justify-content-center mt-4 mb-4">
                 <%= f.submit "Modifier mon profil", class: "btn btn-primary" %>
@@ -65,20 +69,6 @@
             <p>🖼  Il n'y a pas encore d'image pour ce profil</p>
           <% end %>
           </div>
-        </div>
-        <hr>
-        <div class="d-flex flex-column justify-content-center col-lg-7 mx-auto ">
-          <h3>Changer d'avatar ?</h3>
-          <%= form_tag venue_profile_venuepicts_path(@venue_profile.id), multipart: true do %>
-            <div class="d-flex justify-content-between align-items-center flex-wrap">
-              <div class="col-lg-7">
-                <%= file_field_tag :venuepict, class:"form-control my-2" %>
-              </div>
-              <div class="col-lg-4">
-                <%= submit_tag "Mettre à jour", class: "btn btn-primary" %>
-              </div>
-            </div>
-          <%end%>
         </div>
       </div>
     </div>
