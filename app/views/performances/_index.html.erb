@@ -11,15 +11,15 @@
         <div class="card border-light h-100">
           <h3 class="card-header"><%= performances.name %></h3>
           <div class="card-body">
-            <h5 class="card-title"><%= performances.venue_profile.city %></h5>
-            <h6 class="card-subtitle text-muted">Date: <%= performances.date %></h6>
+            <h5 class="card-title"><%= performances.venue_profile.city %> (<%= performances.venue_profile.zipcode.byteslice(0,2) %>)</h5>
+            <h6 class="card-subtitle text-muted">Date: <%= performances.date.strftime("%d/%m/%Y à %H:%M") %></h6>
           </div>
           <div class="card-body">
             <p class="card-text">
-              <% if performances.description.length < 180 %>
+              <% if performances.description.length < 90 %>
                 <%= performances.description %>
               <% else %>
-                <%= performances.description.byteslice(0, 177) %>...
+                <%= performances.description.byteslice(0, 87) %>...
               <% end %>
             </p>
           </div>
