@@ -1,20 +1,23 @@
 class ApplicationsController < ApplicationController
 
-  def new;end
+  def new
+  end
 
   def create
-    @application = Application.create(application_params)
+   @application = Application.new(application_params)
+  @application.update(artist_profile_id: current_user.artist_profile.id)
+  @application.save!
+  redirect_to dashboard_path
   end
 
   def update
   end
 
-  private
+  private 
 
   def application_params
-    params.permit(:message, :status)
+    params.permit(:performance_id, :message)
   end
-
 
 
 end
