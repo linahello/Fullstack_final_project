@@ -33,7 +33,11 @@
         <% end %>   
       </div> 
       <div class="align-items-center col-sm-11 col-lg-5 mx-2 my-auto">
-        <%= image_tag "venue.jpg", style: "width: 100%"%>
+         <% if @venue_profile.venuepict.attached? %>
+            <%= image_tag @venue_profile.venuepict, alt: "venue picture", style: "width: 100%"%>
+          <% else %>
+            <p>🖼  Il n'y a pas encore d'image pour ce profil</p>
+          <% end %>
       </div>
     </div>
   </div>
