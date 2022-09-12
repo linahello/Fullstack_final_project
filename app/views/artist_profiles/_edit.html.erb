@@ -10,7 +10,7 @@
         <div class="flex-column col-sm-11 col-lg-5 mx-2">
           <%= form_with(url: artist_profile_path(@artist_profile.id), method: "patch", local: true) do |f| %>
 
-            <fieldset>  
+            <fieldset>
               <div class="form-group">
                 <%= f.label :name, "Mon nom d'artiste", class: "form-label mt-4" %>
                 <%= f.text_field :name, class: "form-control", value: @artist_profile.name %>
