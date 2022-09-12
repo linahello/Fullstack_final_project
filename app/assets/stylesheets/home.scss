@@ -39,11 +39,13 @@ article img {
   height: 100%;
   object-fit: cover;
 }
-
 main {
   padding-top: 100px;
   padding-bottom: 50px;
   background: rgb(24, 1, 36);
+}
+main h1 {
+  font-size: 55px;
 }
 #text_parallax {
   margin-top: 30px;
@@ -58,6 +60,9 @@ main {
 
 @media only screen and (max-width: 770px) {
 
+  main h1 {
+    font-size: 32px;
+  }
   main h4 {
     padding: 0 50px 0 50px;
   }
