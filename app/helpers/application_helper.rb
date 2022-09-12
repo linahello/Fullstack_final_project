@@ -15,4 +15,8 @@ module ApplicationHelper
       when 'alert' then "Attention !"
     end
   end
+
+  def has_profile?
+    current_user.is_artist || current_user.is_venue
+  end
 end
