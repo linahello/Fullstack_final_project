@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'performance_genres/create'
+  get 'performance_genres/destroy'
   resources :performances
   resources :venue_profiles
   resources :artist_profiles
