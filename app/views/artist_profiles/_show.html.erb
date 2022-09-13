@@ -12,7 +12,7 @@
         <% if @artist_profile.artistpict.attached? %>
           <%= image_tag @artist_profile.artistpict, alt: "venue picture", style: "width: 100%; border-top-left-radius: 8px"%>
         <% else %>
-          <p>🖼  Il n'y a pas encore d'image pour ce profil</p>
+          <%= image_tag "artist_profile.png", alt: "venue picture", style: "width: 100%; border-top-left-radius: 8px"%>
         <% end %>
       </div>
       <div class="col-md-4 p-3 d-flex flex-column align-items-center justify-content-center">
