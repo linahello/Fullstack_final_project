@@ -1,3 +1,14 @@
+<div class="text-center">
+  <h4>
+    Conversation avec 
+    <% recipient = conversation.find_recipient(current_user) %>
+    <% if recipient.is_artist %>
+      <%= recipient.artist_profile.name %>
+    <% else %>
+      <%= recipient.venue_profile.name %>
+    <% end %>
+  </h4>
+</div>
 <div class="container shadow-lg p-3 mb-2 rounded overflow-auto" style="height: 50vh" id="message_box">
   <% conversation.messages.each do |message| %>
     <% if message.body %>
