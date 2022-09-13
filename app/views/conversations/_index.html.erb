@@ -1,0 +1,21 @@
+<div class="ui segment">
+  <h3>Boîte de réception</h3>
+  <div class="ui list">
+    <div class="item">
+      <% @conversations.each do |conversation| %>
+        <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+          <% if conversation.sender_id == current_user.id %>
+            <% recipient = User.find(conversation.recipient_id) %>
+          <% else %>
+            <% recipient = User.find(conversation.sender_id) %>
+          <% end %>
+          <% if recipient.is_artist %>
+            <%= link_to recipient.artist_profile.name, conversation_messages_path(conversation)%>
+          <% else %>
+            <%= link_to recipient.venue_profile.name, conversation_messages_path(conversation)%>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
