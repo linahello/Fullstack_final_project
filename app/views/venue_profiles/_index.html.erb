@@ -17,7 +17,7 @@
           <% if venue.venuepict.attached? %>
             <%= image_tag venue.venuepict, alt: "venue picture", style: "width: 100%"%>
           <% else %>
-            <p>🖼  Il n'y a pas encore d'image pour ce profil</p>
+            <%= image_tag "venue_profile.png", alt: "venue picture", style: "width: 100%"%>
           <% end %>
           <div class="card-body">
             <p class="card-text">
