@@ -26,7 +26,7 @@
               <% @performances.all.each do |performance| %>
                 <tr class="table-active">
                   <td><%= performance.name %></td>
-                  <td><%= performance.date.strftime("%d/%m/%Y à %H:%M") %></td>
+                  <td><%= performance.date_time %></td>
                   <% if performance.public_event? %>
                     <td>Évènement public</td>
                   <% else %>

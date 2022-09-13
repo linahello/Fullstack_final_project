@@ -20,6 +20,18 @@ class VenueProfile < ApplicationRecord
     venuepict.attach(io: File.open(resized_image.path), filename: v_filename, content_type: v_content_type)
   end
 
+  def zip_city
+    self.zipcode.byteslice(0,2)
+  end
+
+  def description_display
+    if self.description.length < 90
+      self.description
+    else
+      self.description.byteslice(0, 87)+"..."
+    end
+  end
+
   private
 
   def venuepict_format
