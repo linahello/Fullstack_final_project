@@ -1,11 +1,7 @@
 <div class="m-3">
   <h1>
     Conversation avec 
-    <% if @conversation.sender_id == current_user.id %>
-      <% recipient = User.find(@conversation.recipient_id) %>
-    <% else %>
-      <% recipient = User.find(@conversation.sender_id) %>
-    <% end %>
+    <% recipient = @conversation.find_recipient(current_user) %>
     <% if recipient.is_artist %>
       <%= recipient.artist_profile.name %>
     <% else %>
