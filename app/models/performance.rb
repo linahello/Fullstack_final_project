@@ -6,4 +6,8 @@ class Performance < ApplicationRecord
   has_many :artist_profiles, through: :applications
   has_many :performance_genres, dependent: :destroy
   has_many :genres, through: :performance_genres
+
+  def date_time
+    date.strftime("%d/%m/%Y à %H:%M")
+  end
 end
