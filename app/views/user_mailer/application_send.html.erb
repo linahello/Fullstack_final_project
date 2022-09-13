@@ -4,10 +4,18 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1 style="text-align:center; font-size:1.1em; background-color: yellow;">Place to play </h1>
-    <div></div>
-    <h2>Bonjour!</h2>
-    <p>Vous avez une nouvelle candidature à une de vos performances.</p>
-    <p>Connectez-vous sur <%= @url %> afin de pouvoir accéder à votre tableau de bord.</p>
+    <div style="background: linear-gradient(45deg, rgb(107, 170, 201), rgb(180, 98, 143))";>
+      <div style="background-color: #180124; height: 100px">
+        <h1 style="text-align:center; font-size:2.2em; color: white; padding: 25px;">Place to Play </h1>
+      </div>
+      <div style="padding: 70px 20px 90px 20px;">
+        <h2>Bonjour!</h2>
+        <p>Vous avez une nouvelle candidature à une de vos performances.</p>
+        <p><%= link_to "Cliquez ici pour vous connecter", new_user_session_url %> afin de pouvoir accéder à votre tableau de bord.</p>
+      </div>
+      <footer style="height: 60px; background-color: transparent; text-align: center;">
+        <p  style="text-muted">Copyright © PlaceToPlay 2022 / <%= link_to "Devalamer", "https://www.devalamer.fr" %> </p>
+      </footer>
+    </div>
   </body>
 </html>
