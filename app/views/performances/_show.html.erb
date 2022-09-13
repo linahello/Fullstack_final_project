@@ -63,7 +63,15 @@
             <p>Évènement privé</p>
           <% end %>
         </p>
-        <p><%= link_to "voir le profil de l'établissement", venue_profile_path(@performance.venue_profile.id) %></p>
+        <% if current_user.is_venue %>
+          <% if @performance.venue_profile_id == current_user.venue_profile.id %>
+            <p>Cet évènement a lieu chez vous !</p>
+          <% else %>
+            <%= link_to "voir le profil de l'établissement", venue_profile_path(@performance.venue_profile.id) %>
+          <% end %>
+          <% elsif current_user.is_artist %>
+          <%= link_to "voir le profil de l'établissement", venue_profile_path(@performance.venue_profile.id) %>
+        <% end %>
       </div>
     </div>
   </div>
