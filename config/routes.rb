@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   end
   resources :artist_genres, only: %i[new create destroy]
   resources :dashboards, only: [:show]
-  
+  resources :conversations do
+    resources :messages
+  end
 
   get 'profile_selection/show'
   get 'contact/show'
