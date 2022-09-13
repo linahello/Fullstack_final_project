@@ -13,9 +13,17 @@
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
         <div class="accordion-body">
-          <% @performances.all.each do |performance| %>
-            <table class="table table-hover">
-              <tbody>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Titre</th>
+                <th scope="col">Date</th>
+                <th scope="col">Type</th>
+                <th scope="col">Plus...</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @performances.all.each do |performance| %>
                 <tr class="table-active">
                   <td><%= performance.name %></td>
                   <td><%= performance.date.strftime("%d/%m/%Y à %H:%M") %></td>
@@ -24,11 +32,11 @@
                   <% else %>
                     <td>Évènement privé</td>
                   <% end %>
-                  <td class="d-flex justify-content-end"><%= link_to "Voir details", performance_path(performance.id) %></td>
+                  <td><%= link_to "Voir details", performance_path(performance.id) %></td>
                 </tr>
-              </tbody>
-            </table>
-          <% end %>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

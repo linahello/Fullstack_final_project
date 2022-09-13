@@ -6,41 +6,40 @@
       <%= link_to "Retour dashboard", dashboard_path(current_user.id) %>
     <% end %>
   </div>
-
-  <div class="card rounded-3 mb-5">
-    <div class="card-body d-flex flex-sm-column flex-lg-row flex-wrap justify-content-around">
-      <div class="flex-column col-sm-11 col-lg-5 mx-2 my-auto">
-        <div>
-          <h5 class= "text-dark pt-2">Le nom de mon établissement: </h5>
-          <h4 class=" pb-2"><%= @venue_profile.name %> </h4>
-        </div>  
-        <div class="pt-2 pb-2">
-          <h6>Ma description: <%= @venue_profile.description%> </h6>
-          <h6>Le type de mon établissement:  <%= @venue_profile.type_of_location%></h6>
-          <h6>La capacité d'accueil de mon établissement: <%= @venue_profile.capacity%> places disponibles</h6>
-        </div>  
-        <div class= "pt-2">
-          <h3 class= "text-dark">L'adresse de mon établissement: </h3>
-          <h6><%= @venue_profile.address%></h6>
-          <h6><%= @venue_profile.zipcode%>, <%= @venue_profile.city%></h6>
-        </div>
-        <div>
-          <h5 class="text-dark pt-2">Pour me contacter: </h5>
-          <p>Email: <%= @venue_profile.user.email%></p>
-      </div>  
-      <% if current_user.id == @venue_profile.user_id %>
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <%= link_to "Modifier mon profil", edit_venue_profile_path, class:"btn btn-secondary" %>
-        <%= link_to "Paramètres de mon compte", edit_user_registration_path, class:"btn btn-danger" %>
+  <div class="container mt-4 card p-0 mb-5">
+    <div class="event_header d-flex flex-row flex-wrap">
+      <div class="col-md-8 p-0">
+        <% if @venue_profile.venuepict.attached? %>
+          <%= image_tag @venue_profile.venuepict, alt: "venue picture", style: "width: 100%; border-top-left-radius: 8px"%>
+        <% else %>
+          <p>🖼  Il n'y a pas encore d'image pour ce profil</p>
+        <% end %>
       </div>
-        <% end %>   
-      </div> 
-      <div class="align-items-center col-sm-11 col-lg-5 mx-2 my-auto">
-         <% if @venue_profile.venuepict.attached? %>
-            <%= image_tag @venue_profile.venuepict, alt: "venue picture", style: "width: 100%"%>
-          <% else %>
-            <p>🖼  Il n'y a pas encore d'image pour ce profil</p>
-          <% end %>
+      <div class="col-md-4 p-3 d-flex flex-column align-items-center justify-content-center">
+        <h1 class="mb-4"><%= @venue_profile.name %></h1>
+        <h3><%= @venue_profile.address%></h3>
+        <h4><%= @venue_profile.zipcode%>, <%= @venue_profile.city%></h4>
+      </div>
+    </div>
+    <div class=" d-flex flex-row flex-wrap" style="border-bottom: 1px solid rgba(255, 255, 255, 0.231); border-top: 1px solid rgba(255, 255, 255, 0.231)" >
+      <div class="col-lg-8 col-md-4 py-3 ps-5 align-items-center d-none d-sm-block">
+      </div>
+      <div class="col-lg-4 col-md-8 p-3">
+        <% if current_user.id == @venue_profile.user_id %>
+          <%= link_to "Modifier mon profil", edit_venue_profile_path, class:"btn btn-lg btn-primary" %>
+        <% elsif current_user.is_artist? %>
+          <%= button_to "contacter", conversations_path, class: "btn btn-lg btn-success", params: { sender_id: current_user.id, recipient_id: @venue_profile.user.id } %>        <% end %>
+      </div>
+    </div>
+    <div class="row" >
+      <div class="col-md-8 p-4">
+        <h3>A propos</h3>
+        <p><%= @venue_profile.description%></p>
+      </div>
+      <div class="col-md-4 p-3 ">
+        <p>Type: <%= @venue_profile.type_of_location%></p>
+        <p>Capacité d'accueil: <%= @venue_profile.capacity%> personnes</p>
+        <p>contact: <%= @venue_profile.user.email%></p>
       </div>
     </div>
   </div>
