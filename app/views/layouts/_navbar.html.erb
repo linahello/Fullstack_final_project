@@ -12,8 +12,10 @@
         <li class="nav-item">
           <%= link_to "Nous contacter", contact_show_path, class:"nav-link" %>
         </li>
-        <li class="nav-item dropdown  parallax">
-          <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon profil</div>
+      </ul>
+      <div class="d-flex justify-content-end me-5">
+        <div class="nav-item dropdown parallax">
+          <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon espace</div>
           <div class="dropdown-menu">
             <% if user_signed_in? %>
               <% if current_user.is_artist %>
@@ -33,8 +35,8 @@
               <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item"%>
             <% end %>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
