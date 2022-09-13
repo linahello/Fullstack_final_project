@@ -64,7 +64,11 @@
             </div>
           <% end %>
         <% else %>
+          <% if current_user.artist_profile.performances.include?(@performance)%>
+            <p class="btn btn-danger disabled my-1">Vous avez déjà postulé</p>
+          <% else %>
             <%= link_to "Postuler !", new_performance_application_path(performance_id: @performance.id), class:"btn btn-danger my-1" %>
+            <% end %>
         <% end %>
       </div>
       <div class="align-items-center col-sm-11 col-lg-5 mx-2 my-auto">
