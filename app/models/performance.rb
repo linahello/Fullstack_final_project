@@ -10,4 +10,12 @@ class Performance < ApplicationRecord
   def date_time
     date.strftime("%d/%m/%Y à %H:%M")
   end
+
+  def description_display
+    if self.description.length < 90
+      self.description
+    else
+      self.description.byteslice(0, 87)+"..."
+    end
+  end
 end
