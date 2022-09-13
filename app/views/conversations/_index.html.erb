@@ -1,21 +1,29 @@
-<div class="ui segment">
-  <h3>Boîte de réception</h3>
-  <div class="ui list">
-    <div class="item">
-      <% @conversations.each do |conversation| %>
-        <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-          <% if conversation.sender_id == current_user.id %>
-            <% recipient = User.find(conversation.recipient_id) %>
-          <% else %>
-            <% recipient = User.find(conversation.sender_id) %>
-          <% end %>
-          <% if recipient.is_artist %>
-            <%= link_to recipient.artist_profile.name, conversation_messages_path(conversation)%>
-          <% else %>
-            <%= link_to recipient.venue_profile.name, conversation_messages_path(conversation)%>
+<div class="pt-3">
+  <h1>Boîte de réception</h1>
+</div>
+<div class="container my-3" style="height: 80vh">
+  <div class="row justify-content-center h-100">
+    <div class="col-md-3 border-end">
+      <h2>Mes conversations</h2> 
+      <ul id="list" class="list-group">
+        <% @conversations.each do |conversation| %>
+          <% if conversation.messages.length > 0 %>
+            <% recipient = conversation.find_recipient(current_user) %>
+            <li id="<%= conversation.id %>"  class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
+              <% if recipient.is_artist %>
+                <%= link_to recipient.artist_profile.name, conversation_messages_path(conversation), remote: true %>
+              <% else %>
+                <%= link_to recipient.venue_profile.name, conversation_messages_path(conversation), remote: true %>
+              <% end %>
+            </li>
           <% end %>
         <% end %>
-      <% end %>
+      </ul>
+    </div>
+  
+    <div id="email" class="col-md-8 border h-100">
+      <h2>Sélectionnez un email</h2>
     </div>
   </div>
 </div>
+
