@@ -1,6 +1,10 @@
 <div class="container h-100 py-2">
   <div class="mb-4">
-    <%= link_to "Retour index", root_path %>
+    <% if current_user.is_artist %>
+      <%= link_to "Retour au dashboard", dashboard_path(current_user.id) %>
+    <% else %>
+      <%= link_to "Retour à la liste", artist_profiles_path %>
+    <% end %>
   </div>
 
   <div class="card rounded-3 mb-5">
@@ -27,9 +31,8 @@
           </div>
         <% end %>
         <div class= "pt-2">
-          <h5 class="text-dark">Ma ville et son code postal: </h5>
-          <p>Ville: <%= @artist_profile.city%></p>
-          <p>code postal: <%= @artist_profile.zipcode%></p>
+          <h5 class="text-dark">Ma ville:</h5>
+          <p><%= @artist_profile.city%> ( <%= @artist_profile.zipcode.byteslice(0,2)%>)</p>
         </div>  
         
         <div class= "pt-2">

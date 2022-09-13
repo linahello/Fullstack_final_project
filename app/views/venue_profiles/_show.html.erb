@@ -1,6 +1,10 @@
 <div class="container h-100 py-2">
   <div class="mb-4">
-    <%= link_to "Retour index", root_path %>
+    <% if current_user.is_artist %>
+      <%= link_to "Retour à la liste", venue_profiles_path %>
+    <% else %>
+      <%= link_to "Retour dashboard", dashboard_path(current_user.id) %>
+    <% end %>
   </div>
 
   <div class="card rounded-3 mb-5">
@@ -16,10 +20,9 @@
           <h6>La capacité d'accueil de mon établissement: <%= @venue_profile.capacity%> places disponibles</h6>
         </div>  
         <div class= "pt-2">
-          <h3 class= "text-dark">Les coordonnées de mon établissement: </h3>
-          <h6>N° et type de voie: <%= @venue_profile.address%></h6>
-          <h6>Ville: <%= @venue_profile.city%></h6>
-          <h6>code postal: <%= @venue_profile.zipcode%></h6>
+          <h3 class= "text-dark">L'adresse de mon établissement: </h3>
+          <h6><%= @venue_profile.address%></h6>
+          <h6><%= @venue_profile.zipcode%>, <%= @venue_profile.city%></h6>
         </div>
         <div>
           <h5 class="text-dark pt-2">Pour me contacter: </h5>

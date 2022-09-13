@@ -25,16 +25,15 @@
             <% end %>
           <div class="card-body">
             <p class="card-text">
-              <% if artist.description.length < 180 %>
+              <% if artist.description.length < 90 %>
                 <%= artist.description %>
               <% else %>
-                <%= artist.description.byteslice(0, 177) %>...
+                <%= artist.description.byteslice(0, 87) %>...
               <% end %>
             </p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item border-bottom"><%= artist.zipcode %></li>
-            <li class="list-group-item"><%= artist.city %></li>
+            <li class="list-group-item"><%= artist.city %> (<%= artist.zipcode.byteslice(0,2) %>)</li>
           </ul>
           <div class="card-body">
             <%= link_to "détails", artist_profile_path(artist.id) %>

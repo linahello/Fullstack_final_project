@@ -10,7 +10,7 @@
         <div class="flex-column col-sm-11 col-lg-5 mx-2">
           <%= form_with(url: artist_profile_path(@artist_profile.id), method: "patch", local: true) do |f| %>
 
-            <fieldset>  
+            <fieldset>
               <div class="form-group">
                 <%= f.label :name, "Mon nom d'artiste", class: "form-label mt-4" %>
                 <%= f.text_field :name, class: "form-control", value: @artist_profile.name %>
@@ -31,6 +31,11 @@
                 <%= f.text_field :city, class: "form-control", value: @artist_profile.city %>
               </div>
 
+              <div class="form-group">
+                <%= f.label :artistpict, "Image", class: "form-label mt-4"%>
+               <%= f.file_field :artistpict, class:"form-control" %>
+              </div>
+
               <div class="d-flex justify-content-center mt-4 mb-2">
                 <%= f.submit "Modifier mon profil", class: "btn btn-primary" %>
               </div>
@@ -46,20 +51,6 @@
           <p>🖼  Il n'y a pas encore d'image pour ce profil</p>
         <% end %>
         </div>
-      </div>
-      <hr>
-      <div class="d-flex flex-column justify-content-center col-lg-7 mx-auto ">
-        <h3>Changer d'avatar ?</h3>
-        <%= form_tag artist_profile_artistpicts_path(@artist_profile.id), multipart: true do %>
-          <div class="d-flex justify-content-between align-items-center flex-wrap">
-            <div class="col-lg-7">
-              <%= file_field_tag :artistpict, class:"form-control my-2" %>
-            </div>
-            <div class="col-lg-4">
-              <%= submit_tag "Mettre à jour", class: "btn btn-primary" %>
-            </div>
-          </div>
-        <% end %>
       </div>
     </div>
   </div>

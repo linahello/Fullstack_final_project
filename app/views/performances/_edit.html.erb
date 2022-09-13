@@ -9,7 +9,7 @@
   <div class="card rounded-3 mb-5">
     <div class="card-body d-flex flex-rtist_profilesm-column flex-lg-row flex-wrap justify-content-around">
       <div class="flex-column col-sm-11 col-lg-5 mx-2">
-        <%= form_with(url: performances_path(@performance.id), method: "patch", local: true) do |f| %>
+        <%= form_with(url: performance_path(@performance.id), method: "patch", local: true) do |f| %>
 
           <fieldset>  
             <div class="form-group">
@@ -24,7 +24,7 @@
 
             <div class="form-group">
               <%= f.label :date, "Date de la performance", class: "form-label mt-4" %>
-              <%= f.datetime_field :date, class: "form-control", value: @performance.date %>
+              <%= f.datetime_field :date, class: "form-control", :value => @performance.date.to_s(:db) %>
             </div>
 
             <div class="form-group">

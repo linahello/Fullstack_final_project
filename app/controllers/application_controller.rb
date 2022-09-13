@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include VenueProfilesHelper
   include PerformancesHelper
   include DashboardsHelper
+  include PerformanceGenresHelper
   add_flash_types :info, :error, :success, :alert
 
   def authorize_venue

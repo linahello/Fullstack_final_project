@@ -1,6 +1,10 @@
 <div class="container h-100 py-2">
   <div class="mb-4">
-    <%= link_to "Retour index", root_path %>
+    <% if current_user.is_artist %>
+      <%= link_to "Retour", performances_path %>
+    <% else %>
+      <%= link_to "Retour", dashboard_path(current_user.id) %>
+    <% end %>
   </div>
 
   <div class="card rounded-3 mb-5">
@@ -17,18 +21,32 @@
         </div>
 
         <div class="pt-2 pb-2">
-          <h5 class="text-dark">Lieu : </h5>
-          <p class="text-justify"><%= @performance.venue_profile.city %> </p>
+          <h5 class="text-dark">Les genres musicaux recherchés: </h5>
+          <p class="text-justify">
+          <% @performance.genres.each do |genre| %>
+            <%= genre.title %>
+          <% end %> </p>
+        </div>
+        <% if current_user.is_venue %>
+          <% if @performance.venue_profile_id == current_user.venue_profile.id %>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <%= link_to "Modifier mes genres", new_performance_performance_genre_path(performance_id: @performance.id), class:"btn btn-secondary btn-sm" %>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="pt-2 pb-2">
+          <h5 class="text-dark">Lieu: </h5>
+          <p class="text-justify"><%= @performance.venue_profile.city %> (<%= @performance.venue_profile.zipcode.byteslice(0,2) %>)</p>
         </div>
 
         <div class= "pt-2">
-          <h5 class="text-dark">Date de la performance </h5>
-          <p> <%= @performance.date%></p>
+          <h5 class="text-dark">Date de la performance: </h5>
+          <p>Le <%= @performance.date.strftime("%d/%m/%Y à %H:%M")%></p>
         </div> 
         
         <div class= "pt-2">
           <h5 class="text-dark">Durée: </h5>
-          <p> <%= @performance.duration%></p>
+          <p> <%= @performance.duration%> minutes</p>
         </div>
 
         <div class= "pt-2">
@@ -38,10 +56,16 @@
           <% else %>
             <p>Évènement privé</p>
           <% end %>
-        </div>  
-
-
-
+        </div>
+        <% if current_user.is_venue %>
+          <% if @performance.venue_profile_id == current_user.venue_profile.id %>
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-sm-column flex-lg-row flex-wrap">
+              <%= link_to "Modifier l'évènement", edit_performance_path(@performance.id), class:"btn btn-secondary my-1" %>
+            </div>
+          <% end %>
+        <% else %>
+            <%= link_to "Postuler !", new_performance_application_path(performance_id: @performance.id), class:"btn btn-danger my-1" %>
+        <% end %>
       </div>
       <div class="align-items-center col-sm-11 col-lg-5 mx-2 my-auto">
         <%= image_tag "show_performance.jpg", style: "width: 100%"%>

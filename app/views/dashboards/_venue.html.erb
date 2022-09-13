@@ -18,8 +18,12 @@
               <tbody>
                 <tr class="table-active">
                   <td><%= performance.name %></td>
-                  <td><%= performance.date %></td>
-                  <td><%= performance.type_of_event %></td>
+                  <td><%= performance.date.strftime("%d/%m/%Y à %H:%M") %></td>
+                  <% if performance.public_event? %>
+                    <td>Évènement public</td>
+                  <% else %>
+                    <td>Évènement privé</td>
+                  <% end %>
                   <td class="d-flex justify-content-end"><%= link_to "Voir details", performance_path(performance.id) %></td>
                 </tr>
               </tbody>
@@ -42,7 +46,7 @@
     </div>
   </div>
   <div class="d-flex justify-content-evenly align-items-center flex-sm-column flex-lg-row flex-wrap">
-    <%= link_to "Voir mon profil", venue_profile_path, class:"btn btn-secondary btn-lg px-4 mt-3 mt-lg-5" %>
-    <%= link_to "Voir la liste des Artistes", root_path, class:"btn btn-lg btn-info px-2 px-lg-4 mt-3 mt-lg-5" %>
+    <%= link_to "Voir mon profil", venue_profile_path(current_user.venue_profile.id), class:"btn btn-secondary btn-lg px-4 mt-3 mt-lg-5" %>
+    <%= link_to "Voir la liste des Artistes", artist_profiles_path, class:"btn btn-lg btn-info px-2 px-lg-4 mt-3 mt-lg-5" %>
   </div>
 </div>
