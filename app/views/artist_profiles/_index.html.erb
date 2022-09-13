@@ -25,11 +25,7 @@
             <% end %>
           <div class="card-body">
             <p class="card-text">
-              <% if artist.description.length < 90 %>
-                <%= artist.description %>
-              <% else %>
-                <%= artist.description.byteslice(0, 87) %>...
-              <% end %>
+              <%= artist.description_display %>
             </p>
           </div>
           <ul class="list-group list-group-flush">

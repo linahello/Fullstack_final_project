@@ -21,11 +21,7 @@
           <% end %>
           <div class="card-body">
             <p class="card-text">
-            <% if venue.description.length < 90 %>
-              <%= venue.description %>
-            <% else %>
-              <%= venue.description.byteslice(0, 87) %>...
-            <% end %>
+            <%= venue.description_display %>
             </p>
           </div>
           <ul class="list-group list-group-flush">
