@@ -28,7 +28,7 @@
         <% if current_user.id == @artist_profile.user_id %>
           <%= link_to "Modifier mon profil", edit_venue_profile_path, class:"btn btn-lg btn-primary" %>
         <% elsif current_user.is_venue? %>
-          <%= link_to "Contacter", edit_venue_profile_path, class:"btn btn-lg btn-primary" %>
+          <%= button_to "contacter", conversations_path, class: "btn btn-lg btn-success", params: { sender_id: current_user.id, recipient_id: @artist_profile.user.id } %>        <% end %>
         <% end %>
       </div>
     </div>
