@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   include PerformancesHelper
   include DashboardsHelper
   include PerformanceGenresHelper
+  include ConversationsHelper
   add_flash_types :info, :error, :success, :alert
 
   def authorize_venue
