@@ -1,4 +1,4 @@
-<% conversation.messages.each do |message| %>
+<% messages.each do |message| %>
   <% if message.body %>
     <% user = User.find(message.user_id) %>
     <div class="<%= user.id == current_user.id ? 'card border-secondary mb-2 w-75 ms-auto' : 'card border-primary mb-2 w-75'%>">
