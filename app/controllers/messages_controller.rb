@@ -4,12 +4,15 @@ class MessagesController < ApplicationController
   end
 
   def index
-    @messages = @conversation.messages
-    @messages.each do |message|
-      if message.user_id != current_user.id
-        message.update(read: true)
+    @messages_list = @conversation.messages
+    @messages_list.each do |message|
+      if message.user_id != current_user.id 
+        if message.read == false
+          message.update(read: true)
+        end
       end
     end
+    @messages = Message.all.order('created_at').where(conversation_id: @conversation.id)
     @message = @conversation.messages.new
     respond_to do |format|
       format.html { }

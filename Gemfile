@@ -75,3 +75,5 @@ gem 'aws-sdk-s3', require: false
 gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
 gem 'table_print'
 gem 'rubocop'
+gem 'rspotify'
+gem 'rails-i18n'

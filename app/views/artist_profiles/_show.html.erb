@@ -22,11 +22,21 @@
       </div>
     </div>
     <div class=" d-flex flex-row flex-wrap" style="border-bottom: 1px solid rgba(255, 255, 255, 0.231); border-top: 1px solid rgba(255, 255, 255, 0.231)" >
-      <div class="col-lg-8 col-md-4 py-3 ps-5 align-items-center d-none d-sm-block">
-      </div>
+      <% if @artist_profile.spotifyID %>
+      <div class="col-lg-8 col-md-4  d-sm-block">
+        <div class="d-inline-flex flex-wrap align-items-center my-3 mx-4 me-5 bg-dark p-1">
+          
+          <%= image_tag "Spotify_Icon_RGB_Green", style:"width: 9%;", class:"mx-2" %>
+          <%= audio_tag(@track.preview_url, controls: true) %>
+          <%= link_to "Page Spotify" ,"https://open.spotify.com/artist/#{@artist_profile.spotifyID}", class:"ms-lg-5 btn btn-outline-spotify", target: :_blank %>
+          </div>
+        </div>
+          <% else %>
+            <div class="col-lg-8 col-md-4 d-none  d-sm-block"></div>
+          <% end %>
       <div class="col-lg-4 col-md-8 p-3">
         <% if current_user.id == @artist_profile.user_id %>
-          <%= link_to "Modifier mon profil", edit_venue_profile_path, class:"btn btn-lg btn-primary" %>
+          <%= link_to "Modifier mon profil", edit_artist_profile_path, class:"btn btn-lg btn-primary" %>
         <% elsif current_user.is_venue? %>
           <%= button_to "contacter", conversations_path, class: "btn btn-lg btn-primary", params: { sender_id: current_user.id, recipient_id: @artist_profile.user.id } %>
         <% end %>
