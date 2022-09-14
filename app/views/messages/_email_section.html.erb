@@ -1,4 +1,4 @@
-<div class="text-center">
+<div class="card-header p-sm-4 p-1">
   <h4>
     Conversation avec 
     <% recipient = conversation.find_recipient(current_user) %>
@@ -9,7 +9,7 @@
     <% end %>
   </h4>
 </div>
-<div class="container shadow-lg p-3 mb-2 rounded overflow-auto" style="height: 50vh" id="message_box">
+<div class="card-body h-100 overflow-auto w-100 pb-0" id="message_box">
   <% messages.each do |message| %>
     <% if message.body %>
       <% user = User.find(message.user_id) %>
@@ -30,7 +30,7 @@
   <% end %>
 </div>
 
-<div class="container mb-4">
+<div class="card-footer border-0 pt-3 pb-3 px-4">
   <%= form_for [conversation, @message], remote: true do |f| %>
     <div class="form-group mt-2">
       <%= f.text_area :body, class: "form-control", id: "msg_field", placeholder: "Votre message..." %>
