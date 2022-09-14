@@ -19,4 +19,14 @@ module ApplicationHelper
   def has_profile?
     current_user.is_artist || current_user.is_venue
   end
+
+  def count_unread
+    unread_conversations = 0
+    my_conversations.each do |conversation|
+      if conversation.unread?(current_user)
+        unread_conversations += 1
+      end
+    end
+    unread_conversations
+  end
 end

@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   include PerformancesHelper
   include DashboardsHelper
   include PerformanceGenresHelper
+  include ApplicationsHelper
   include ConversationsHelper
   add_flash_types :info, :error, :success, :alert
 
@@ -16,4 +17,6 @@ class ApplicationController < ActionController::Base
       redirect_to new_user_session_path
     end
   end
+
+  
 end

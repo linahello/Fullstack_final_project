@@ -3,7 +3,7 @@ class ConversationsController < ApplicationController
 
   def index
     @users = User.all
-    @conversations = my_conversations
+    @conversations = my_conversations.includes(:messages).order('messages.created_at desc')
   end
 
   def create

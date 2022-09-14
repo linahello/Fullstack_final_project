@@ -15,4 +15,16 @@ class Conversation < ApplicationRecord
       User.find(self.sender_id) 
     end 
   end
+
+  def unread?(current_user)
+    number_messages = 0
+    number_read = 0
+    self.messages.each do |message|
+      if message.user_id != current_user.id
+        number_messages += 1
+        message.read ? number_read += 1 : next
+      end
+    end
+    number_messages == number_read ? false : true
+  end
 end
