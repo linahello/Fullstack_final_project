@@ -33,7 +33,7 @@
 <div class="container mb-4">
   <%= form_for [conversation, @message], remote: true do |f| %>
     <div class="form-group mt-2">
-      <%= f.text_area :body, class: "form-control", placeholder: "Votre message..." %>
+      <%= f.text_area :body, class: "form-control", id: "msg_field", placeholder: "Votre message..." %>
     </div>
       <%= f.text_field :user_id, value: current_user.id, type: "hidden", class: "form-control" %>
     <div class="action">

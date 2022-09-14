@@ -3,6 +3,7 @@ email.innerHTML = "<%= j render 'email_section', conversation: @conversation %>"
 var div = document.getElementById("message_box");
 div.scrollTop = div.scrollHeight;
 var conv = document.getElementById("<%= @conversation.id %>")
-conv.classList.remove("active")
+conv.classList.remove("bg-white")
+conv.classList.remove("text-dark")
 var span = document.getElementById("unread_count")
 span.innerHTML = "<%= j render 'span' %>"
