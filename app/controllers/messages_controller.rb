@@ -27,6 +27,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new(message_params)
+    @messages = Message.all.order('created_at').where(conversation_id: @conversation.id)
     if @message.save
       respond_to do |format|
         format.html {redirect_to conversation_messages_path(@conversation)}
