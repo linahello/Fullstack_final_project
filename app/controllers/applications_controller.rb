@@ -1,23 +1,18 @@
 class ApplicationsController < ApplicationController
 
-  def new
-  end
+  def new; end
 
   def create
    @application = Application.new(application_params)
   @application.update(artist_profile_id: current_user.artist_profile.id)
   @application.save!
-  redirect_to dashboard_path(current_user.id)
+  redirect_to performance_application_path(id: @application.id)
   end
 
-  def update
-  end
+  def update; end
 
-  def show 
+  def show; end
 
-  end
-
-  
   private 
 
   def application_params
