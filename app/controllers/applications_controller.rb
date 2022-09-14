@@ -13,6 +13,11 @@ class ApplicationsController < ApplicationController
   def update
   end
 
+  def show 
+
+  end
+
+  
   private 
 
   def application_params
