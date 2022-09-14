@@ -36,6 +36,11 @@
                <%= f.file_field :artistpict, class:"form-control" %>
               </div>
 
+              <div class="form-group">
+                <%= f.label :spotifyID, "Lien de ma page Spotify", class: "form-label mt-4" %>
+                <%= f.text_field :spotifyID, class: "form-control", value: "https://open.spotify.com/artist/#{@artist_profile.spotifyID}" %>
+              </div>
+
               <div class="d-flex justify-content-center mt-4 mb-2">
                 <%= f.submit "Modifier mon profil", class: "btn btn-primary" %>
               </div>
