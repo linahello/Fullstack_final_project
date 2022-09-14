@@ -6,7 +6,7 @@ module ArtistProfilesHelper
   def spotify
     if @artist_profile.spotifyID
       @spotify = RSpotify::Artist.find(@artist_profile.spotifyID)
-      @track = @spotify.albums.first.tracks.first.preview_url
+      @track = @spotify.top_tracks(:FR).first
     end
   end
 end
