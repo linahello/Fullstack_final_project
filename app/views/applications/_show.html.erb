@@ -1,5 +1,13 @@
-<h1 class="p-5 text-center">Votre Candidature a bien été envoyée!</h1>
-<h6 class="text-center">Dès que l'établissement, aura pris sa décision, vous recevrez un email informatif.</h6>
+<h1 class="p-2 text-center">Candidature proposée par : <%= @application.artist_profile.name %></h1>
+<h2 class="text-center pb-3"> Concernant l'évènement : <%= @application.performance.name %></h2>
+<p class="text-center">Un message vous avez a été laissé:</p>
+<p class="text-center"><%=@application.message %></p>
+<p class= "text-center"> statut: <%=@application.status%></p>
+<div class="text-center p-4">
+<%= button_to 'accepter', performance_application_path(performance_id: @application.performance.id, id: @application.id), class:"btn btn-outline-dark my-1", method: 'patch', params: { status: :accepted } %>
+<%= button_to 'décliner', performance_application_path(@application.id), class:"btn btn-outline-dark my-1", method: 'patch', params: { status: :declined } %>
+</div>
+
   <div class="m-4 text-center">
     <%= link_to 'retour au tableau de bord', root_path, class: "btn btn-primary" %>
   </div>  
