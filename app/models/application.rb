@@ -8,4 +8,15 @@ class Application < ApplicationRecord
   user = self.performance.venue_profile.user
   UserMailer.application_send(user).deliver_now
   end
+
+  def display_status
+    case status
+    when 'pending'
+      'En attente'
+    when 'accepted'
+      'Acceptée'
+    when 'declined'
+      'Rejetée'
+    end
+  end
 end
