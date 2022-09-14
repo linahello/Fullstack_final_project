@@ -2,23 +2,21 @@
   <h1>Boîte de réception</h1>
 </div>
 <div class="container-fluid px-2 my-3" style="height: 70vh">
-  <div class="row justify-content-center h-100">
-    <div class="col-md-3 border-end">
+  <div class="row justify-content-center h-100 ">
+    <div class="col-md-3 border-end h-100 overflow-auto">
       <h2>Mes conversations</h2> 
-      <ul id="list" class="list-group">
+      <div id="list" class="list-group">
         <% @conversations.each do |conversation| %>
           <% if conversation.messages.length > 0 %>
             <% recipient = conversation.find_recipient(current_user) %>
-            <li id="<%= conversation.id %>"  class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
               <% if recipient.is_artist %>
-                <%= link_to recipient.artist_profile.name, conversation_messages_path(conversation), remote: true %>
+                <%= link_to recipient.artist_profile.name, conversation_messages_path(conversation), remote: true, id: "#{conversation.id}", class: "list-group-item list-group-item-action #{'bg-white text-dark' if conversation.unread?(current_user) }" %>
               <% else %>
-                <%= link_to recipient.venue_profile.name, conversation_messages_path(conversation), remote: true %>
+                <%= link_to recipient.venue_profile.name, conversation_messages_path(conversation), remote: true, id: "#{conversation.id}", class: "list-group-item list-group-item-action #{'bg-white text-dark' if conversation.unread?(current_user) }" %>
               <% end %>
-            </li>
           <% end %>
         <% end %>
-      </ul>
+      </div>
     </div>
   
     <div id="email" class="col-md-8 h-100">
