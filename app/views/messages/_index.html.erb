@@ -11,7 +11,7 @@
   </h1>
 </div>
 <div class="container shadow-lg p-3 mb-2 rounded overflow-auto" style="height: 50vh" id="message_box">
-  <% @conversation.messages.each do |message| %>
+  <% @messages.each do |message| %>
     <% if message.body %>
       <% user = User.find(message.user_id) %>
       <div class="<%= user.id == current_user.id ? 'card border-secondary mb-2 w-75 ms-auto' : 'card border-primary mb-2 w-75'%>">
