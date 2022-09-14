@@ -10,9 +10,9 @@
           <% if conversation.messages.length > 0 %>
             <% recipient = conversation.find_recipient(current_user) %>
               <% if recipient.is_artist %>
-                <%= link_to recipient.artist_profile.name, conversation_messages_path(conversation), remote: true, id: "#{conversation.id}", class: "list-group-item list-group-item-action #{'active' if conversation.unread?(current_user) }" %>
+                <%= link_to recipient.artist_profile.name, conversation_messages_path(conversation), remote: true, id: "#{conversation.id}", class: "list-group-item list-group-item-action #{'bg-white text-dark' if conversation.unread?(current_user) }" %>
               <% else %>
-                <%= link_to recipient.venue_profile.name, conversation_messages_path(conversation), remote: true, id: "#{conversation.id}", class: "list-group-item list-group-item-action #{'active' if conversation.unread?(current_user) }" %>
+                <%= link_to recipient.venue_profile.name, conversation_messages_path(conversation), remote: true, id: "#{conversation.id}", class: "list-group-item list-group-item-action #{'bg-white text-dark' if conversation.unread?(current_user) }" %>
               <% end %>
           <% end %>
         <% end %>
