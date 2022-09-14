@@ -5,7 +5,7 @@
 <p class= "text-center"> statut: <%=@application.status%></p>
 <div class="text-center p-4">
 <%= button_to 'accepter', performance_application_path(performance_id: @application.performance.id, id: @application.id), class:"btn btn-outline-dark my-1", method: 'patch', params: { status: :accepted } %>
-<%= button_to 'décliner', performance_application_path(@application.id), class:"btn btn-outline-dark my-1", method: 'patch', params: { status: :declined } %>
+<%= button_to 'décliner', performance_application_path(performance_id: @application.performance.id, id: @application.id), class:"btn btn-outline-dark my-1", method: 'patch', params: { status: :declined } %>
 </div>
 
   <div class="m-4 text-center">

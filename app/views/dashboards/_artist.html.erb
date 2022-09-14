@@ -23,16 +23,14 @@
               </tr>
             </thead>
             <tbody>
-              <% @performances.all.each do |performance| %>
-                <% performance.applications.all.each do |application| %>
-                  <% if application.status == "accepted" %>
-                    <tr class="table-active">
-                      <td><%= performance.name %></td>
-                      <td><%= performance.date_time %></td>
-                      <td><%= performance.type_of_event %></td>
-                      <td><%= link_to "Voir details", performance_path(performance.id) %></td>
-                    </tr>
-                  <% end %>
+              <% @applications.each do |application| %>
+                <% if application.accepted? %>
+                  <tr class="table-active">
+                    <td><%= application.performance.name %></td>
+                    <td><%= application.performance.date_time %></td>
+                    <td><%= application.performance.type_of_event %></td>
+                    <td><%= link_to "Voir details", performance_path(application.performance.id) %></td>
+                  </tr>
                 <% end %>
               <% end %>
             </tbody>
@@ -60,18 +58,16 @@
               </tr>
             </thead>
             <tbody>
-              <% @performances.all.each do |performance| %>
-                <% performance.applications.all.each do |application| %>
-                  <tr class="table-active">
-                    <td><%= application.display_status %></td>
-                    <td><%= application.performance.name %></td>
-                    <td><%= performance.venue_profile.name %></td>
-                    <td><%= application.performance.date_time %></td>                 
-                    <td><%= link_to "profil établissement", venue_profile_path(performance.venue_profile.id) %></td>
-                    <td><%= link_to "voir évènement", performance_path(performance.id) %></td>
-                  </tr>
-                <% end %>
-              <% end %>
+              <% @applications.each do |application| %>
+                <tr class="table-active">
+                  <td><%= application.display_status %></td>
+                  <td><%= application.performance.name %></td>
+                  <td><%= application.performance.venue_profile.name %></td>
+                  <td><%= application.performance.date_time %></td>                 
+                  <td><%= link_to "profil établissement", venue_profile_path(application.performance.venue_profile.id) %></td>
+                  <td><%= link_to "voir évènement", performance_path(application.performance.id) %></td>
+                </tr>
+              <% end %> 
             </tbody>
           </table>
         </div>
