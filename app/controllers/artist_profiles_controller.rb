@@ -7,6 +7,7 @@ class ArtistProfilesController < ApplicationController
 
   def show
     @artist_profile = find_artist_profile
+    spotify
   end
 
   def new; end
@@ -44,6 +45,6 @@ class ArtistProfilesController < ApplicationController
   private
 
   def artist_profile_params
-    params.permit(:name, :description, :zipcode, :city, :artistpict)
+    params.permit(:name, :description, :zipcode, :city, :artistpict, :spotifyID)
   end
 end

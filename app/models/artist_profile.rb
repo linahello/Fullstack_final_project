@@ -10,6 +10,7 @@ class ArtistProfile < ApplicationRecord
   has_many :performances, through: :applications
   has_one_attached :artistpict, dependent: :destroy
   validate :artistpict_format
+  before_save :find_spotifyid
 
   def resize_image
     resized_image = MiniMagick::Image.read(artistpict.download)
@@ -30,6 +31,10 @@ class ArtistProfile < ApplicationRecord
 
   def zip_city
     zipcode.byteslice(0,2)
+  end
+
+  def find_spotifyid
+    self.spotifyID = self.spotifyID.split('/').last
   end
 
   private

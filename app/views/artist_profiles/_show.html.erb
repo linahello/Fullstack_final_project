@@ -23,6 +23,9 @@
     </div>
     <div class=" d-flex flex-row flex-wrap" style="border-bottom: 1px solid rgba(255, 255, 255, 0.231); border-top: 1px solid rgba(255, 255, 255, 0.231)" >
       <div class="col-lg-8 col-md-4 py-3 ps-5 align-items-center d-none d-sm-block">
+        <% if @artist_profile.spotifyID %>
+        <%= audio_tag(@track, controls: true) %>
+        <% end %>
       </div>
       <div class="col-lg-4 col-md-8 p-3">
         <% if current_user.id == @artist_profile.user_id %>
