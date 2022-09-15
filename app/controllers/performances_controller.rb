@@ -1,7 +1,8 @@
 class PerformancesController < ApplicationController
   before_action :authorize_venue, only: %i[new create edit update destroy]
   def index
-    @performances = Performance.all
+    @performances = Performance.are_future
+    @performances = Performance.are_future.select { |performance| performance.venue_profile.zip_city == search_params['dpt'] } if search_params['dpt'].present?
   end
 
   def new
@@ -41,5 +42,9 @@ class PerformancesController < ApplicationController
 
   def performance_params
     params.permit(:name, :description, :date, :duration, :type_of_event)
+  end
+
+  def search_params
+    params.slice(:dpt)
   end
 end
