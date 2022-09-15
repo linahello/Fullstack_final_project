@@ -1,15 +1,14 @@
-
 <div class ="container-fluid pt-5 pb-5 px-3 text-center" style= "background-color: #928BA1"">
   <div class="row align-items-center">
     <div class="col-md-5">
       <%= image_tag 'music_home.png', class: "img-fluid rounded-start p-2", alt:"music icon by Icons8"%>
     </div>
     <div class="col-md-6">
-            <h5 class=" display-6 pb-2">Vous êtes musicien ? Besoin d'aide pour trouver des endroits où jouer ?</h5>
-        <p class="p-2">Ici vous avez accès à une liste mise à jour en temps réel des établissements qui font jouer des artistes! Bars, restaurants ou salles de concert, on aura ce que vous cherchez ! N'attendez plus, montez sur scène ! </p>
-          <div class="d-flex align-item-center justify-content-around">
-          <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary btn-lg px-5 mx-auto" %>
-          </div>
+      <h5 class=" display-6 pb-2">Vous êtes musicien ? Besoin d'aide pour trouver des endroits où jouer ?</h5>
+      <p class="p-2">Ici vous avez accès à une liste mise à jour en temps réel des établissements qui font jouer des artistes! Bars, restaurants ou salles de concert, on aura ce que vous cherchez ! N'attendez plus, montez sur scène ! </p>
+      <div class="d-flex align-item-center justify-content-around">
+        <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary btn-lg px-5 mx-auto" %>
+      </div>
     </div>
   </div>
 </div>
@@ -17,12 +16,12 @@
 <div class ="container-fluid pt-5 pb-5 px-3 text-center" style= "background-color: #180124">
   <div class="row align-items-center">
     <div class="col-md-6">
-              <h5 class="display-6 pb-2">Vous possédez un établissement ? Venez trouver vos artistes !</h5>
-          <p class="pt-2">Avoir accès aux profils musiciens détaillés et trouvez ceux qui animeront vos futurs évènements !</p><br>
-          <p >Ainsi vous pourrez voir leur styles musicaux et pleins d'autres choses à découvrir !</p>
-          <div class="d-flex align-item-center justify-content-around">
-          <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary btn-lg px-5 my-3 mx-auto" %>
-          </div>
+      <h5 class="display-6 pb-2">Vous possédez un établissement ? Venez trouver vos artistes !</h5>
+      <p class="pt-2">Avoir accès aux profils musiciens détaillés et trouvez ceux qui animeront vos futurs évènements !</p><br>
+      <p >Ainsi vous pourrez voir leur styles musicaux et pleins d'autres choses à découvrir !</p>
+      <div class="d-flex align-item-center justify-content-around">
+        <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary btn-lg px-5 my-3 mx-auto" %>
+      </div>
     </div>
     <div class="col-md-5">
       <%= image_tag 'pub.png', class: "img-fluid fa-4x rounded-start p-2", alt:"icon made by Good Ware"%>
@@ -30,11 +29,8 @@
   </div>
 </div>
 
-<!-- Carousel wrapper -->
 <div id="carouselExampleControls" class="container-fluid pt-5 pb-5 px-3 carousel slide text-center" data-bs-ride="carousel">
-  <!-- Inner -->
   <div class="carousel-inner">
-    <!-- Single item -->
     <div class="carousel-item active">
       <div class="container">
         <div class="row">
@@ -55,7 +51,6 @@
               <li><i class="fa fa-solid fa-star"></i></li> 
             </ul>
           </div>
-
           <div class="col-lg-4 d-none d-lg-block">
             <%= image_tag 'avatar2.jpg', class: "rounded-circle shadow-1-strong mb-4", alt:"avatar", style: "width: 150px;" %>
             <h5 class="mb-3">John Doe</h5>
@@ -73,7 +68,6 @@
               <li><i class="fa fa-solid fa-star"></i></li> 
             </ul>
           </div>
-
           <div class="col-lg-4 d-none d-lg-block">
             <%= image_tag 'avatar3.jpg', class: "rounded-circle shadow-1-strong mb-4", alt:"avatar", style: "width: 150px;" %>
             <h5 class="mb-3">Maria Kate</h5>
@@ -94,8 +88,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Single item -->
     <div class="carousel-item">
       <div class="container">
         <div class="row">
@@ -116,7 +108,6 @@
               <li><i class="fa fa-solid fa-star"></i></li> 
             </ul>
           </div>
-
           <div class="col-lg-4 d-none d-lg-block">
             <%= image_tag 'avatar5.jpg', class: "rounded-circle shadow-1-strong mb-4", alt:"avatar", style: "width: 150px;" %>
             <h5 class="mb-3">Lenny Bass</h5>
@@ -134,7 +125,6 @@
               <li><i class="fa fa-solid fa-star"></i></li> 
             </ul>
           </div>
-
           <div class="col-lg-4 d-none d-lg-block">
             <%= image_tag 'avatar6.jpg', class: "rounded-circle shadow-1-strong mb-4", alt:"avatar", style: "width: 150px;" %>
             <h5 class="mb-3">Marta Cerrutti</h5>
@@ -156,6 +146,4 @@
       </div>
     </div>
   </div>
-  <!-- Inner -->
 </div>
-<!-- Carousel wrapper -->
