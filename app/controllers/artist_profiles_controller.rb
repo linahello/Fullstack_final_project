@@ -3,6 +3,7 @@ class ArtistProfilesController < ApplicationController
 
   def index
     @artist_profiles = ArtistProfile.all
+    @artist_profiles = @artist_profiles.select { |artist| artist.zip_city == search_params['dpt'] } if search_params['dpt'].present?
   end
 
   def show
@@ -47,4 +48,9 @@ class ArtistProfilesController < ApplicationController
   def artist_profile_params
     params.permit(:name, :description, :zipcode, :city, :artistpict, :spotifyID)
   end
+
+  def search_params
+    params.slice(:dpt)
+  end
+
 end

@@ -7,6 +7,16 @@ class Performance < ApplicationRecord
   has_many :performance_genres, dependent: :destroy
   has_many :genres, through: :performance_genres
 
+  def self.are_future
+    performances = []
+    Performance.all.each do |performance|
+      if Time.now < performance.date
+        performances.push(performance)
+      end
+    end
+    performances
+  end
+
   def date_time
     date.strftime("%d/%m/%Y à %H:%M")
   end
@@ -18,4 +28,5 @@ class Performance < ApplicationRecord
       self.description.byteslice(0, 87)+"..."
     end
   end
+
 end

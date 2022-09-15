@@ -5,7 +5,7 @@ require 'rails_helper'
       it 'render contact page' do
         visit '/about/show'
         click_link 'Nous contacter'
-        expect(page).to have_content 'Discutons'
+        expect(page).to have_content 'Contactez-nous !'
       end
     end
   end
