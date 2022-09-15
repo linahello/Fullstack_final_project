@@ -4,72 +4,138 @@
   <p class="lead">Naviguez avec les menus ci-dessous !</p>
 </div>
 <div class="container mt-2 pt-lg-2 pb-5">
-  <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          Mes évènements prévus
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
-        <div class="accordion-body">          
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Titre</th>
-                <th scope="col">Date</th>
-                <th scope="col">Type</th>
-                <th scope="col">Plus...</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @applications.each do |application| %>
-                <% if application.accepted? %>
-                  <tr class="table-active">
-                    <td><%= application.performance.name %></td>
-                    <td><%= application.performance.date_time %></td>
-                    <td><%= application.performance.type_of_event %></td>
-                    <td><%= link_to "Voir details", performance_path(application.performance.id) %></td>
-                  </tr>
+  <div class="d-none d-sm-none d-md-block d-lg-block">
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Mes évènements prévus
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+          <div class="accordion-body">          
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Titre</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Plus...</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @applications.each do |application| %>
+                  <% if application.accepted? %>
+                    <tr class="table table-active">
+                      <td><%= application.performance.name %></td>
+                      <td><%= application.performance.date_time %></td>
+                      <td><%= application.performance.type_of_event %></td>
+                      <td><%= link_to "Voir details", performance_path(application.performance.id) %></td>
+                    </tr>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Candidatures
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
+          <div class="accordion-body">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Status</th>
+                  <th scope="col">Évènement</th>
+                  <th scope="col">Établissement</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Profil</th>
+                  <th scope="col">Détails</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @applications.each do |application| %>
+                  <tr class="table-active">
+                    <td><%= application.display_status %></td>
+                    <td><%= application.performance.name %></td>
+                    <td><%= application.performance.venue_profile.name %></td>
+                    <td><%= application.performance.date_time %></td>                 
+                    <td><%= link_to "profil établissement", venue_profile_path(application.performance.venue_profile.id) %></td>
+                    <td><%= link_to "voir évènement", performance_path(application.performance.id) %></td>
+                  </tr>
+                <% end %> 
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Candidatures
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
-        <div class="accordion-body">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Status</th>
-                <th scope="col">Évènement</th>
-                <th scope="col">Établissement</th>
-                <th scope="col">Date</th>
-                <th scope="col">Profil</th>
-                <th scope="col">Détails</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @applications.each do |application| %>
-                <tr class="table-active">
-                  <td><%= application.display_status %></td>
-                  <td><%= application.performance.name %></td>
-                  <td><%= application.performance.venue_profile.name %></td>
-                  <td><%= application.performance.date_time %></td>                 
-                  <td><%= link_to "profil établissement", venue_profile_path(application.performance.venue_profile.id) %></td>
-                  <td><%= link_to "voir évènement", performance_path(application.performance.id) %></td>
+  </div>
+  <div class="d-sm-block d-md-none">
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Mes évènements prévus
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+          <div class="accordion-body">          
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Titre</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Plus...</th>
                 </tr>
-              <% end %> 
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                <% @applications.each do |application| %>
+                  <% if application.accepted? %>
+                    <tr class="table table-active">
+                      <td><%= application.performance.name %></td>
+                      <td><%= application.performance.date_time %></td>
+                      <td><%= link_to "Voir", performance_path(application.performance.id) %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Candidatures
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
+          <div class="accordion-body">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Status</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Détails</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @applications.each do |application| %>
+                  <tr class="table-active">
+                    <td><%= application.display_status %></td>
+                    <td><%= application.performance.date_time %></td>                 
+                    <td><%= link_to "voir", performance_path(application.performance.id) %></td>
+                  </tr>
+                <% end %> 
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
