@@ -3,7 +3,9 @@
   <div class="row py-2 py-md-4 py-lg-4"  >
     <div class="col-md-7 offset-xl-1 ps-2 ps-md-0">
       <h1>Candidature de: <%=link_to "#{@application.artist_profile.name}", artist_profile_path(@application.artist_profile.id) %></h1>
-      <p class="lead mt-4"><%=@application.message %></p>
+      <% if @application.message != '' %>
+        <p class="lead mt-4"><%=@application.message %></p>
+      <% end %>
     </div>
     <div class="col-xl-4 col-md-5 text-md-start pt-md-2 pb-2 pb-md-0 mb-4 mb-md-0 pe-md-4 ps-2">
       <h2> Concerne l'évènement : <%= @application.performance.name %></h2>
