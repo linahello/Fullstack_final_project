@@ -1,0 +1,26 @@
+<div class="flex-grow-1"></div>
+<div class="container mt-4 card p-0 mb-2" >
+  <div class="row py-2 py-md-4 py-lg-4"  >
+    <div class="col-md-7 offset-xl-1 ps-2 ps-md-0">
+      <h1>Candidature de: <%=link_to "#{@application.artist_profile.name}", artist_profile_path(@application.artist_profile.id) %></h1>
+      <% if @application.message != '' %>
+        <p class="lead mt-4"><%=@application.message %></p>
+      <% end %>
+    </div>
+    <div class="col-xl-4 col-md-5 text-md-start pt-md-2 pb-2 pb-md-0 mb-4 mb-md-0 pe-md-4 ps-2">
+      <h2> Concerne l'évènement : <%= @application.performance.name %></h2>
+      <p> statut: <%= @application.display_status %></p>
+      <% if @application.status == "pending"%>
+        <%= button_to 'accepter', performance_application_path(performance_id: @application.performance.id, id: @application.id), class:"btn btn-success my-1 w-100", method: 'patch', params: { status: :accepted } %>
+        <%= button_to 'décliner', performance_application_path(performance_id: @application.performance.id, id: @application.id), class:"btn btn-danger my-1 w-100", method: 'patch', params: { status: :declined } %>
+      <% else %>
+        <p class="btn btn-danger disabled my-1 w-100">Cette candidature a déjà été traitée</p>
+      <% end %>  
+    </div>  
+  </div>
+
+</div>
+<div class="container text-center mb-4 mt-3">
+  <%= link_to 'retour au tableau de bord', root_path, class: "btn btn-primary" %>
+</div>
+<div class="flex-grow-1"></div>

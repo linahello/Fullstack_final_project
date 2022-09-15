@@ -1,0 +1,5 @@
+var message_box = document.getElementById("message_box");
+message_box.innerHTML = "<%= j render 'messages_section', messages: @messages %>";
+message_box.scrollTop = message_box.scrollHeight;
+var field = document.getElementById("msg_field")
+field.value = ''

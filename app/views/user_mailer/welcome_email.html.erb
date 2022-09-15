@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+      <div style="background-color: #180124; height: 100px">
+        <h1 style="text-align:center; font-size:2.2em; color: white; padding: 25px;">Place to Play </h1>
+      </div>
+      <div style="padding: 70px 20px 90px 20px;">
+        <h2>Bonjour et bienvenue chez nous!</h2>
+        <p>Vous vous êtes inscrit sur Placetoplay.herokuapp.com en utilisant l'e-mail suivant : <%= @user.email %>.</p>
+        <p>Pour accéder à votre espace client, connectez-vous via : <%= link_to "Ouvrir ma session", new_user_session_url %></p>
+        <p>À très vite sur Placetoplay.herokuapp.com pour découvrir tout ce que nous pouvons vous proposer !</p>
+      </div>
+      <footer style="height: 60px; background-color: transparent; text-align: center;">
+        <p  style="text-muted">Copyright © PlaceToPlay 2022 / <%= link_to "Devalamer", "https://www.devalamer.fr" %> </p>
+      </footer>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+Place to play
+==========================================================
+Bonjour!
+Vous avez une nouvelle candidature concernant une de vos performances intitulée : <%= @application.performance.name%>
+Le ou les artiste(s) postulant est(sont): <%=@application.artist_profile.name %>
+
+<%= link_to "Cliquez ici pour vous connecter", new_user_session_url %> afin de pouvoir accéder à votre tableau de bord.

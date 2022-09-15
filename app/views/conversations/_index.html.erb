@@ -1,0 +1,35 @@
+<div class="pt-3 text-center">
+  <h1>Boîte de réception</h1>
+</div>
+<div class="px-md-3 mt-md-2 pt-md-2 pb-4">
+  <div class="row g-0 rounded-3 shadow-sm position-relative flex-wrap-reverse">
+    <div class="col-lg-4" style="max-height: 720px">
+      <div class="card h-100">
+        <div class="card-header p-sm-4">
+          <h3>Mes conversations</h3>
+        </div>
+        <div class="card-body h-100 overflow-auto w-100 pb-0 mb-2">
+          <div id="list" class="list-group">
+            <% @conversations.each do |conversation| %>
+              <% if conversation.messages.length > 0 %>
+                <% recipient = conversation.find_recipient(current_user) %>
+                  <% if recipient.is_artist %>
+                    <%= link_to recipient.artist_profile.name, conversation_messages_path(conversation), remote: true, id: "#{conversation.id}", class: "list-group-item list-group-item-action #{'bg-white text-dark' if conversation.unread?(current_user) }" %>
+                  <% else %>
+                    <%= link_to recipient.venue_profile.name, conversation_messages_path(conversation), remote: true, id: "#{conversation.id}", class: "list-group-item list-group-item-action #{'bg-white text-dark' if conversation.unread?(current_user) }" %>
+                  <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-lg-8 ps-md-1 pb-2 pb-md-0" style="max-height: 720px">
+      <div id="email" class="card h-100">
+        <h2>Sélectionnez une conversation</h2>
+      </div>
+    </div>
+  </div>
+</div>
+

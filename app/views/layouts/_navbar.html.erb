@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <%= link_to image_tag('navbarlogo.png', style: 'width: auto; height: 34px'), root_path, class: "navbar-brand" %>
+    <%= link_to image_tag('navbarlogo.png', style: 'width: auto; height: 34px'), alt: "logo", root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,26 +12,77 @@
         <li class="nav-item">
           <%= link_to "Nous contacter", contact_show_path, class:"nav-link" %>
         </li>
-        <li class="nav-item dropdown  parallax">
-          <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon profil</div>
-          <div class="dropdown-menu">
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item me-3 d-flex">
+          <% if user_signed_in? %>
+            <% if has_profile? %>
+              <%= link_to "Mes messages", conversations_path, class:"nav-link" %>
+              <span id="unread_count" class="badge bg-primary rounded-pill h-50"><%= count_unread %></span>
+            <% end %>
+          <% end %>
+        </li>
+        <div class="d-sm-block d-md-block d-lg-none">
+          <ul class="navbar-nav me-auto">
             <% if user_signed_in? %>
               <% if current_user.is_artist %>
-                <%= link_to "Mon profil", artist_profile_path(current_user.artist_profile.id), class: "dropdown-item"%>
+                <li class="nav-item">
+                  <%= link_to "Mon profil", artist_profile_path(current_user.artist_profile.id), class: "nav-link"%>
+                </li>
               <% elsif current_user.is_venue %>
-                <%= link_to "Mon profil", venue_profile_path(current_user.venue_profile.id), class: "dropdown-item"%>
+                <li class="nav-item">
+                  <%= link_to "Mon profil", venue_profile_path(current_user.venue_profile.id), class: "nav-link"%>
+                  </li>
               <% else %>
-                <%= link_to "Mon profil", profile_selection_show_path, class: "dropdown-item"%>
+                  <li class="nav-item">
+                    <%= link_to "Mon profil", profile_selection_show_path, class: "nav-link"%>
+                  </li>
               <% end %>
-              <div class="dropdown-divider"></div>
-              <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+              <li class="nav-item">
+                <%= link_to "Tableau de bord", dashboard_path(current_user.id), class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Mon compte", edit_user_registration_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", method: :delete %>
+              </li>
             <% else %>
-            <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item"%>
-              <div class="dropdown-divider"></div>
-              <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item"%>
+              <li class="nav-item">
+                <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link"%>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Se connecter", new_user_session_path, class: "nav-link"%>
+              </li>
             <% end %>
-          </div>
-        </li>
+          </ul>
+        </div>
+        <div class="d-none d-sm-none d-md-none d-lg-block">
+          <li class="d-flex justify-content-end me-5">
+            <div class="nav-item dropdown parallax">
+              <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon espace</div>
+              <div class="dropdown-menu">
+                <% if user_signed_in? %>
+                  <% if current_user.is_artist %>
+                    <%= link_to "Mon profil", artist_profile_path(current_user.artist_profile.id), class: "dropdown-item"%>
+                  <% elsif current_user.is_venue %>
+                    <%= link_to "Mon profil", venue_profile_path(current_user.venue_profile.id), class: "dropdown-item"%>
+                  <% else %>
+                    <%= link_to "Mon profil", profile_selection_show_path, class: "dropdown-item"%>
+                  <% end %>
+                  <%= link_to "Tableau de bord", dashboard_path(current_user.id), class: "dropdown-item" %>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to "Mon compte", edit_user_registration_path, class: "dropdown-item" %>
+                  <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+                <% else %>
+                  <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item"%>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item"%>
+                <% end %>
+              </div>
+            </div>
+          </li>
+        </div>
       </ul>
     </div>
   </div>

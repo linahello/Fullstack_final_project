@@ -3,10 +3,12 @@ class ArtistProfilesController < ApplicationController
 
   def index
     @artist_profiles = ArtistProfile.all
+    @artist_profiles = @artist_profiles.select { |artist| artist.zip_city == search_params['dpt'] } if search_params['dpt'].present?
   end
 
   def show
     @artist_profile = find_artist_profile
+    spotify
   end
 
   def new; end
@@ -24,8 +26,11 @@ class ArtistProfilesController < ApplicationController
 
   def update
     @artist_profile = find_artist_profile
-    @artist_profile.update(artist_profile_params)
-    redirect_to artist_profile_path(@artist_profile.id)
+    if @artist_profile.update(artist_profile_params)
+      redirect_to artist_profile_path(@artist_profile.id)
+    else
+      redirect_to edit_artist_profile_path(@artist_profile.id), alert: @artist_profile.errors.full_messages.last
+    end
   end
 
   def edit
@@ -41,6 +46,11 @@ class ArtistProfilesController < ApplicationController
   private
 
   def artist_profile_params
-    params.permit(:name, :description, :zipcode, :city)
+    params.permit(:name, :description, :zipcode, :city, :artistpict, :spotifyID)
   end
+
+  def search_params
+    params.slice(:dpt)
+  end
+
 end

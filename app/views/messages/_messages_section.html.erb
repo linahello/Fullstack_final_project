@@ -1,0 +1,19 @@
+<% messages.each do |message| %>
+  <% if message.body %>
+    <% user = User.find(message.user_id) %>
+    <div class="<%= user.id == current_user.id ? 'card border-secondary mb-2 w-75 ms-auto' : 'card border-primary mb-2 w-75'%>">
+      <div class="card-header">
+        <% if user.is_artist %>
+          <strong><%= user.artist_profile.name %></strong>
+        <% else %>
+          <strong><%= user.venue_profile.name %></strong>
+        <% end %>
+        - <%= message.message_time %>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= message.body %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+

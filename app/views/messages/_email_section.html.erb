@@ -1,0 +1,44 @@
+<div class="card-header p-sm-4 p-1">
+  <h4>
+    Conversation avec 
+    <% recipient = conversation.find_recipient(current_user) %>
+    <% if recipient.is_artist %>
+      <%= recipient.artist_profile.name %>
+    <% else %>
+      <%= recipient.venue_profile.name %>
+    <% end %>
+  </h4>
+</div>
+<div class="card-body h-100 overflow-auto w-100 pb-0" id="message_box">
+  <% messages.each do |message| %>
+    <% if message.body %>
+      <% user = User.find(message.user_id) %>
+      <div class="<%= user.id == current_user.id ? 'card border-secondary mb-2 w-75 ms-auto' : 'card border-primary mb-2 w-75'%>">
+        <div class="card-header">
+          <% if user.is_artist %>
+            <strong><%= user.artist_profile.name %></strong>
+          <% else %>
+            <strong><%= user.venue_profile.name %></strong>
+          <% end %>
+          - <%= message.message_time %>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><%= message.body %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="card-footer border-0 pt-3 pb-3 px-4">
+  <%= form_for [conversation, @message], remote: true do |f| %>
+    <div class="form-group mt-2">
+      <%= f.text_area :body, class: "form-control", id: "msg_field", placeholder: "Votre message..." %>
+    </div>
+      <%= f.text_field :user_id, value: current_user.id, type: "hidden", class: "form-control" %>
+    <div class="action">
+      <%= f.submit "Envoyer", class: "btn btn-primary mt-2" %>
+    </div>
+  <% end %>
+</div>
+

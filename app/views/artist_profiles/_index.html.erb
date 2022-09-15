@@ -3,6 +3,19 @@
   <p class="lead">Trouve l'artiste qui va jouer lors de ton prochain évènement</p>
 </div>
 
+<div class="col ms-auto me-2 mt-4 ">
+    <%= form_tag(artist_profiles_path, method: "get", class: "row") do %>
+      <div class="col-8">
+        <%= select_tag(:dpt, options_for_select(departements_select), {:class => 'form-select'}) %>
+      </div>
+      <div class="col-4">
+        <%= submit_tag("Filtrer", {:class => 'btn btn-primary'}) %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
 <div class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
   <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
 
@@ -18,18 +31,18 @@
               <% end %>
             </h6>
           </div>
+            <% if artist.artistpict.attached? %>
+              <%= image_tag artist.artistpict, alt: "artist picture", style: "width: 100%"%>
+            <% else %>
+              <%= image_tag "artist_profile.png", alt: "artist picture", style: "width: 100%"%>
+            <% end %>
           <div class="card-body">
             <p class="card-text">
-              <% if artist.description.length < 180 %>
-                <%= artist.description %>
-              <% else %>
-                <%= artist.description.byteslice(0, 177) %>...
-              <% end %>
+              <%= artist.description_display %>
             </p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item border-bottom"><%= artist.zipcode %></li>
-            <li class="list-group-item"><%= artist.city %></li>
+            <li class="list-group-item"><%= artist.city %> (<%= artist.zipcode.byteslice(0,2) %>)</li>
           </ul>
           <div class="card-body">
             <%= link_to "détails", artist_profile_path(artist.id) %>

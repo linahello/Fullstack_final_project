@@ -1,0 +1,49 @@
+<div class="px-md-3 mt-md-2 pt-md-4 pb-4"> 
+  <div class="card">
+    <div class="card-header">
+      <h1>
+        Conversation avec 
+        <% recipient = @conversation.find_recipient(current_user) %>
+        <% if recipient.is_artist %>
+          <%= recipient.artist_profile.name %>
+        <% else %>
+          <%= recipient.venue_profile.name %>
+        <% end %>
+        :
+      </h1>
+    </div>
+    <div class="card-body overflow-auto" style="height: 50vh" id="message_box">
+      <% @messages.each do |message| %>
+        <% if message.body %>
+          <% user = User.find(message.user_id) %>
+          <div class="<%= user.id == current_user.id ? 'card border-secondary mb-2 w-75 ms-auto' : 'card border-primary mb-2 w-75'%>">
+            <div class="card-header">
+              <% if user.is_artist %>
+                <strong><%= user.artist_profile.name %></strong>
+              <% else %>
+                <strong><%= user.venue_profile.name %></strong>
+              <% end %>
+              - <%= message.message_time %>
+            </div>
+            <div class="card-body">
+              <p class="card-text"><%= message.body %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="card-footer">
+      <%= form_for [@conversation, @message], remote: true do |f| %>
+        <div class="form-group mt-2">
+          <%= f.text_area :body, class: "form-control", id: "msg_field", placeholder: "Votre message..." %>
+        </div>
+          <%= f.text_field :user_id, value: current_user.id, type: "hidden", class: "form-control" %>
+        <div class="action">
+          <%= f.submit "Envoyer", class: "btn btn-primary mt-2" %>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+<%= javascript_include_tag 'scroll' %>

@@ -1,40 +1,149 @@
-<aside class="pt-5 pb-5" style= "background-color: #928BA1">
-  <div class="card  text-dark m-auto" style="max-width: 1000px;">
-    <div class="row g-0 row-cols-1 row-cols-md-1">
-      <div class="col-md-4 ">
-        <%= image_tag 'mic.png', class: "img-fluid rounded-start p-2", alt:"..."%>
+<div class ="container-fluid pt-5 pb-5 px-3 text-center" style= "background-color: #928BA1">
+  <div class="row align-items-center">
+    <div class="col-md-5">
+      <%= image_tag 'music_home.png', class: "img-fluid rounded-start p-2", alt:"music icon by Icons8"%>
+    </div>
+    <div class="col-md-6">
+      <h5 class=" display-6 pb-2">Vous êtes musicien ? Besoin d'aide pour trouver des endroits où jouer ?</h5>
+      <p class="p-2">Ici vous avez accès à une liste mise à jour en temps réel des établissements qui font jouer des artistes! Bars, restaurants ou salles de concert, on aura ce que vous cherchez ! N'attendez plus, montez sur scène ! </p>
+      <div class="d-flex align-item-center justify-content-around">
+        <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary btn-lg px-5 mx-auto" %>
       </div>
-      <div class="col-md-8 ">
-        <div class="card-body">
-          <h5 class="card-title display-5">Vous êtes musicien ? Besoin d'aide pour trouver des endroits où jouer ?</h5>
-          <p class="card-text">Ici vous avez accès à une liste mise à jour en temps réel des établissements qui font jouer des artistes! Bars, restaurants ou salles de concert, on aura ce que vous cherchez ! N'attendez plus, montez sur scène ! </p>
-          <p class="card-text p-2">
-          <div class="d-flex align-item-center justify-content-around">
-          <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary btn-lg px-5 mx-auto" %>
+    </div>
+  </div>
+</div>
+
+<div class ="container-fluid pt-5 pb-5 px-3 text-center" style= "background-color: #180124">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h5 class="display-6 pb-2">Vous possédez un établissement ? Venez trouver vos artistes !</h5>
+      <p class="pt-2">Avoir accès aux profils musiciens détaillés et trouvez ceux qui animeront vos futurs évènements !</p><br>
+      <p >Ainsi vous pourrez voir leur styles musicaux et pleins d'autres choses à découvrir !</p>
+      <div class="d-flex align-item-center justify-content-around">
+        <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary btn-lg px-5 my-3 mx-auto" %>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag 'pub.png', class: "img-fluid fa-4x rounded-start p-2", alt:"icon made by Good Ware"%>
+    </div>
+  </div>
+</div>
+
+<div id="carouselExampleControls" class="container-fluid pt-5 pb-5 px-3 carousel slide text-center" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <%= image_tag 'avatar1.jpg', class: "rounded-circle shadow-1-strong mb-4", alt:"avatar", style: "width: 150px;" %>
+            <h5 class="mb-3">Anna Deynah</h5>
+            <p>Chanteuse</p>
+            <p class="text-muted">
+              <i class="fa fa-duotone fa-quote-left"></i>
+              Grâce à Place to Play, je chante enfin régulièrement devant un public et non plus devant mon chat !
+              <i class="fa fa-duotone fa-quote-right"></i>
+            </p>
+            <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+            </ul>
+          </div>
+          <div class="col-lg-4 d-none d-lg-block">
+            <%= image_tag 'avatar2.jpg', class: "rounded-circle shadow-1-strong mb-4", alt:"avatar", style: "width: 150px;" %>
+            <h5 class="mb-3">John Doe</h5>
+            <p>Guitariste</p>
+            <p class="text-muted">
+              <i class="fa fa-duotone fa-quote-left"></i>
+              Terminé les galères pour trouver des scènes, je contacte directement les lieux dès qu'ils proposent une prestation !
+              <i class="fa fa-duotone fa-quote-right"></i>
+            </p>
+            <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+            </ul>
+          </div>
+          <div class="col-lg-4 d-none d-lg-block">
+            <%= image_tag 'avatar3.jpg', class: "rounded-circle shadow-1-strong mb-4", alt:"avatar", style: "width: 150px;" %>
+            <h5 class="mb-3">Maria Kate</h5>
+            <p>Gérante de Bar</p>
+            <p class="text-muted">
+              <i class="fa fa-duotone fa-quote-left"></i>
+              Heureuse de trouver facilement des artistes qui viennent animer les soirées du vendredi, merci Place to Play.
+              <i class="fa fa-duotone fa-quote-right"></i>
+            </p>
+            <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</aside>
-<div class="bg-dark pt-5 pb-5">
-  <div class="card  text-dark m-auto" style="max-width: 1000px;">
-    <div class="row g-0 row-cols-1 row-cols-md-1">
-            <div class="col-md-8 ">
-        <div class="card-body">
-          <h5 class="card-title display-5">Vous possédez un établissement ? Venez trouver vos artistes !</h5>
-          <p class="card-text">Avoir accès aux renseignements concernant les musiciens, trouvez ceux qui animeront vos soirées !</p><br>
-          <p class="card-text">Ainsi vous pourrez voir leur styles musicaux et pleins d'autres choses à découvrir !</p>
-          <p class="card-text p-2">
-          <div class="d-flex align-item-center justify-content-around">
-          <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary btn-lg px-5 mx-auto" %>
+    <div class="carousel-item">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <%= image_tag 'avatar4.jpg', class: "rounded-circle shadow-1-strong mb-4", alt:"avatar", style: "width: 150px;" %>
+            <h5 class="mb-3">Michaela Van G.</h5>
+            <p>Directrice d'un musée</p>
+            <p class="text-muted">
+              <i class="fa fa-duotone fa-quote-left"></i>
+              Faciliter la fusion des genres et le partage artistique, tout ce que j'attendais pour réanimer le musée!
+              <i class="fa fa-duotone fa-quote-right"></i>
+            </p>
+            <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+            </ul>
+          </div>
+          <div class="col-lg-4 d-none d-lg-block">
+            <%= image_tag 'avatar5.jpg', class: "rounded-circle shadow-1-strong mb-4", alt:"avatar", style: "width: 150px;" %>
+            <h5 class="mb-3">Lenny Bass</h5>
+            <p>Batteur</p>
+            <p class="text-muted">
+              <i class="fa fa-duotone fa-quote-left"></i>
+              Avant je ne savais pas comment trouver des dates, maintenant je passe par Place to Play.
+              <i class="fa fa-duotone fa-quote-right"></i>
+            </p>
+            <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+            </ul>
+          </div>
+          <div class="col-lg-4 d-none d-lg-block">
+            <%= image_tag 'avatar6.jpg', class: "rounded-circle shadow-1-strong mb-4", alt:"avatar", style: "width: 150px;" %>
+            <h5 class="mb-3">Marta Cerrutti</h5>
+            <p>Chanteuse</p>
+            <p class="text-muted">
+              <i class="fa fa-duotone fa-quote-left"></i>
+              Je n'ai jamais autant jouer que depuis que j'utilise Place to Play !
+              <i class="fa fa-duotone fa-quote-right"></i>
+            </p>
+            <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+              <li><i class="fa fa-solid fa-star"></i></li> 
+            </ul>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <%= image_tag 'music_circle.png', class: "img-fluid rounded-start p-2", alt:"..."%>
-      </div>
-
     </div>
   </div>
 </div>

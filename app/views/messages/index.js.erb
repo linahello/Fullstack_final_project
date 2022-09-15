@@ -1,0 +1,9 @@
+var email = document.getElementById("email");
+email.innerHTML = "<%= j render 'email_section', messages: @messages, conversation: @conversation %>";
+var div = document.getElementById("message_box");
+div.scrollTop = div.scrollHeight;
+var conv = document.getElementById("<%= @conversation.id %>")
+conv.classList.remove("bg-white")
+conv.classList.remove("text-dark")
+var span = document.getElementById("unread_count")
+span.innerHTML = "<%= j render 'span' %>"
