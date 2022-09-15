@@ -89,8 +89,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% if find_application && !@application.empty? %>
-                  <% @application.each do |application| %>
+                  <% if find_applications_all && !@applications.empty? %>
+                  <% @applications.each do |application| %>
                 <tr class="table-active">
                   <td><%= application.artist_profile.name %> </td>
                   <td><%= link_to "voir le profil de l'artiste", artist_profile_path(application.artist_profile.id) %></td>
