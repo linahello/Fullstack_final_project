@@ -1,5 +1,6 @@
 class PerformancesController < ApplicationController
   before_action :authorize_venue, only: %i[new create edit update destroy]
+  before_action :authorize_artist, only: [:index]
   def index
     @performances = Performance.all
   end
