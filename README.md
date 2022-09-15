@@ -47,17 +47,26 @@ C'est pourquoi nous avons pensé ✨ **Place to Play** ✨, une application gén
 
 [How to acces](#How-to-acces)
 
+[Installation et lancement en Local](#Installation-et-lancement-en-Local)
+
 [Executive Summary](#Executive-Summary)
 
 [User Flow](#User-Flow)
 
-[User Stories](#features)
+[User Stories](#User-Stories)
+
+[Trello](#Trello)
+
+[Data Base](#Data-Base)
+
+[Wireframes](#Wireframes)
 
 [Authors Details](#authors-details)
 
 [Show your support](#show-your-support)
 
 [User Experience](#User-Experience)
+
 
 </div>
 
@@ -67,6 +76,25 @@ C'est pourquoi nous avons pensé ✨ **Place to Play** ✨, une application gén
 ↳ [PlacetoPlay](https://place-to-play.herokuapp.com/) 🎤 
 
 </br>
+
+## Installation et lancement en Local
+
+Avant de lancer l'application, faire :
+
+```ruby
+$ bundle install
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+```
+
+Puis lancer le server : 
+
+```ruby
+$ rails server
+```
+
+Il ne reste plus qu'à se rendre sur le site en local pour accèder aux fonctionnalités 👉 [Play to Play](http://localhost:3000/)
 
 ## Executive Summary
 
@@ -89,12 +117,6 @@ C'est pourquoi nous avons pensé ✨ **Place to Play** ✨, une application gén
 - En tant qu'Artiste, je peux accéder à la liste des établissements, voir les évènements qui ont été créé, postuler pour participer à un évènement, voir quels sont les artites qui ont postulé à l'évènement, envoyer et recevoir des messages avec les établissements via la messagerie, ajouter à mon profil un lecteur Spotify, modifier mes genres musicaux, accéder à mon tableau de bord répertoriant mes évènements prévus et mes candidatures (ainsi que leurs status)
 - En tant qu'Établissement, je peux consulter la liste des artistes et leurs profils, créer et modifier des performances, fermer les candidatures, voir quels sont les artites qui ont postulé à l'évènement, accéder à mon dashboard pour voir mes évènements prévus, les candidatures que j'ai accepté et celles en attente, envoyer et recevoir des messages avec les artistes via la messagerie
 
-</br>
-
-## Wireframes 
-
-↳ [How it started](https://wireframe.cc/pro/pp/3c3ef1d1c578583)
-
 
 </br>
 
@@ -107,7 +129,16 @@ C'est pourquoi nous avons pensé ✨ **Place to Play** ✨, une application gén
 
 ## Data Base
 
-↳ [Download here](file:///Users/p/Downloads/BDDPlaceToPlay-2.pdf)  
+↳ Download here : file:///Users/p/Downloads/BDDPlaceToPlay-2.pdf
+
+
+
+</br>
+
+## Wireframes 
+
+↳ [How it started](https://wireframe.cc/pro/pp/3c3ef1d1c578583)
+
 
 </br>
 </br>
