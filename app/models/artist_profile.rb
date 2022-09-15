@@ -34,7 +34,8 @@ class ArtistProfile < ApplicationRecord
   end
 
   def find_spotifyid
-    self.spotifyID = self.spotifyID.split('/').last
+    return unless self.spotifyID
+      self.spotifyID = self.spotifyID.split('/').last
   end
 
   private
