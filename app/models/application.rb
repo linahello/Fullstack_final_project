@@ -6,7 +6,7 @@ class Application < ApplicationRecord
 
   def email_venue_send
     user = self.performance.venue_profile.user
-    UserMailer.application_send(user).deliver_now
+    UserMailer.application_send(user, self).deliver_now
   end
 
   def email_artist_status
