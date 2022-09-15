@@ -73,11 +73,13 @@ C'est pourquoi nous avons pensé ✨ **Place to Play** ✨, une application gén
 </br>
 
 
-## Features
-- En tant que visiteur, je peux consulter la page d'acceuil et m'inscrire
-- En tant que visiteur, je peux m'inscrire comme artiste ou établissement
-- En tant qu'utilisateur authentifié, je peux accéder à mon profil, compléter mon profil, modifier mes informations, supprimer mon profil
-- En tant qu'utilisateur authentifié, consulter la liste des artistes/établissements inscrits
+## User Stories
+- En tant que Visiteur, je peux consulter la page d'acceuil et m'inscrire
+- En tant que Visiteur, je peux m'inscrire comme artiste ou établissement
+- En tant qu'Utilisateur authentifié, je peux accéder à mon profil, compléter mon profil, modifier mes informations, supprimer mon compte
+- En tant qu'Utilisateur authentifié, je peux consulter la liste des artistes/établissements inscrits
+- En tant qu'Artiste, je peux accéder à la liste des établissements, voir les évènements qui ont été créé, postuler pour participer à un évènement, voir quels sont les artites qui ont postul à l'évènement, envoyer et recevoir des messages avec les établissements via la messagerie, ajouter à mon profil un lecteur Spotify, modifier mes genres musicaux, accéder à mon tableau de bord répertoriant mes évènements prévus et mes candidatures (ainsi que leurs status)
+- En tant qu'Établissement, je peux consulter la liste des artistes et leurs profils, créer et modifier des performances, fermer les candidatures, voir quels sont les artites qui ont postul à l'évènement, accéder à mon dashboard pour voir mes évènements prévus, les candidatures que j'ai accepté et celles en attente, envoyer et recevoir des messages avec les artistes via la messagerie
 
 
 </br>

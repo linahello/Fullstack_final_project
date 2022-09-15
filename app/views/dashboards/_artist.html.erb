@@ -29,7 +29,11 @@
                     <tr class="table table-active">
                       <td><%= application.performance.name %></td>
                       <td><%= application.performance.date_time %></td>
-                      <td><%= application.performance.type_of_event %></td>
+                      <% if application.performance.public_event? %>
+                        <td>Évènement public</td>
+                      <% else %>
+                        <td>Évènement privé</td>
+                      <% end %>
                       <td><%= link_to "Voir details", performance_path(application.performance.id) %></td>
                     </tr>
                   <% end %>
