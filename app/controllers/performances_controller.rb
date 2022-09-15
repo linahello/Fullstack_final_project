@@ -40,6 +40,6 @@ class PerformancesController < ApplicationController
   private
 
   def performance_params
-    params.permit(:name, :description, :date, :duration, :type_of_event)
+    params.permit(:name, :description, :date, :duration, :type_of_event, :status)
   end
 end
