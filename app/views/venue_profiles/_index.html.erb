@@ -3,6 +3,17 @@
   <p class="lead">Trouve l'établissement qui t'offrira ta prochaine scène</p>
 </div>
 
+<div class="ms-auto me-2 mt-4 row">
+  <%= form_tag(venue_profiles_path, method: "get", class: "row") do %>
+    <div class="col-8">
+      <%= select_tag(:dpt, options_for_select(departements_select), {:class => 'form-select'}) %>
+    </div>
+    <div class="col-4">
+      <%= submit_tag("Filtrer", {:class => 'btn btn-primary'}) %>
+    </div>
+  <% end %>
+</div>
+
 <div class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
   <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
 
