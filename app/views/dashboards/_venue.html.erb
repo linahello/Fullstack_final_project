@@ -72,7 +72,7 @@
                         <td><%= application.performance.name %></td>
                         <td><%= link_to "profil de l'artiste", artist_profile_path(application.artist_profile.id) %></td>
                         <td><%= application.performance.date_time %></td>
-                        <td><%= link_to "voir candidature", artist_profile_path(application.artist_profile.id) %></td>
+                        <td><%= link_to "voir candidature", performance_application_path(performance_id: performance.id, id: application.id) %></td>
                       </tr>
                     <% end %>
                   <% end %>

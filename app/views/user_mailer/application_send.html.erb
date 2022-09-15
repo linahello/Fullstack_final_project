@@ -9,7 +9,8 @@
       </div>
       <div style="padding: 70px 20px 90px 20px;">
         <h2>Bonjour!</h2>
-        <p>Vous avez une nouvelle candidature concernant une de vos performances.</p>
+        <p>Vous avez une nouvelle candidature concernant une de vos performances intitulée : <%= @application.performance.name%></p>
+        <p>Le ou les artiste(s) postulant est(sont): <%=@application.artist_profile.name %></p>
         <p><%= link_to "Cliquez ici pour vous connecter", new_user_session_url %> afin de pouvoir accéder à votre tableau de bord.</p>
       </div>
       <footer style="height: 60px; background-color: transparent; text-align: center;">
