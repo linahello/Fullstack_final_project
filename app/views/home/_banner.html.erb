@@ -1,16 +1,16 @@
- <article>
-    <%= image_tag 'bg.png', id: 'bg' %>
-    <%= image_tag 'musicians.png', id: "musicians"%>
-    <%= image_tag 'cloud_bg.png', id: "cloud_bg"%>
-    <%= image_tag 'cloud.png', id: "cloud"%>
-    <%= image_tag 'cloud_right.png', id: "cloud_right"%>
-    <%= image_tag 'crowd.png', id: "crowd" %>
-    <h2 id="text_parallax">Place to Play</h2>
-  </article>
-  <main>
-    <h1 class="main text-center">Place to Play, tout ce qu'il vous faut pour vous "music-connecter" !</h2>
-    <h4 class="text-center pb-5">En rejoignant nos professionnels inscrits, rentrez en contact avec des musiciens ou trouvez des lieux pour jouer !</h4>
-    <div class="d-flex align-item-center justify-content-around mb-3">
-      <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-lg btn-primary px-5 mx-auto" %>
-    </div>
-  </main>
+<header>
+  <%= image_tag 'bg.png', id: 'bg', alt: "party background picture" %>
+  <%= image_tag 'musicians.png', id: "musicians", alt: "musicians picture"%>
+  <%= image_tag 'cloud_bg.png', id: "cloud_bg", alt: "cloud background picture"%>
+  <%= image_tag 'cloud.png', id: "cloud", alt: "cloud picture"%>
+  <%= image_tag 'cloud_right.png', id: "cloud_right", alt: "cloud on right picture"%>
+  <%= image_tag 'crowd.png', id: "crowd", alt: "crowd picture" %>
+  <h2 id="text_parallax">Place to Play</h2>
+</header>
+<main>
+  <h1 class="main text-center">Place to Play, tout ce qu'il vous faut pour vous "music-connecter" !</h2>
+  <h4 class="text-center pb-5">En rejoignant nos professionnels inscrits, rentrez en contact avec des musiciens ou trouvez des lieux pour jouer !</h4>
+  <div class="d-flex align-item-center justify-content-around mb-3">
+    <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-lg btn-primary px-5 mx-auto" %>
+  </div>
+</main>
