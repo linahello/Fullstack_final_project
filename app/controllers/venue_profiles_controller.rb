@@ -1,6 +1,6 @@
 class VenueProfilesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @venue_profiles = VenueProfile.all
     @venue_profiles = @venue_profiles.select { |venue| venue.zip_city == search_params['dpt'] } if search_params['dpt'].present?
@@ -51,5 +51,4 @@ class VenueProfilesController < ApplicationController
   def search_params
     params.slice(:dpt)
   end
-
 end

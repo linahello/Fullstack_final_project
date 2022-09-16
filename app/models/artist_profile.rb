@@ -36,6 +36,11 @@ class ArtistProfile < ApplicationRecord
   def find_spotifyid
     return unless self.spotifyID
       self.spotifyID = self.spotifyID.split('/').last
+      begin
+        RSpotify::Artist.find(self.spotifyID)
+      rescue => e
+        self.spotifyID = nil
+      end
   end
 
   private
@@ -43,8 +48,8 @@ class ArtistProfile < ApplicationRecord
   def artistpict_format
     return unless artistpict.attached?
     if artistpict.blob.content_type.start_with? 'image/'
-      if artistpict.blob.byte_size > 1.megabytes
-        errors.add(:artistpict, 'size needs to be less than 1MB')
+      if artistpict.blob.byte_size > 5.megabytes
+        errors.add(:artistpict, "La taille de l'image doit être inférieure à 5MB")
         artistpict.purge
       else
         resize_image

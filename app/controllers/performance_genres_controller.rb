@@ -1,6 +1,6 @@
 class PerformanceGenresController < ApplicationController
 
-  def new 
+  def new
     @performance = Performance.find(params[:performance_id])
     @genres = Genre.all
   end
@@ -8,12 +8,11 @@ class PerformanceGenresController < ApplicationController
   def create
     PerformanceGenre.create(performance_genre_params)
     @performance = Performance.find(params[:performance_id])
-    
+
     respond_to do |format|
       format.html { redirect_to new_performance_performance_genre_path(performance_id: @performance.id) }
-      format.js { }
+      format.js {}
     end
-
   end
 
   def destroy
@@ -23,9 +22,8 @@ class PerformanceGenresController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to new_performance_performance_genres_path(peformance_id: @performance.id) }
-      format.js { }
+      format.js {}
     end
-
   end
 
   private
