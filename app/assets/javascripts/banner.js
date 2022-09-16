@@ -5,7 +5,7 @@ var cloud = document.getElementById('cloud');
 let text_parallax = document.getElementById('text_parallax');
 var crowd = document.getElementById('crowd');
 
-text_parallax.style.top = "3vw";
+text_parallax.style.top = "3vh";
 window.addEventListener('scroll', function() {
 var value = window.scrollY;
 bg.style.top = value * 0.005 + 'px';
