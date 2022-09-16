@@ -52,5 +52,4 @@ class ArtistProfilesController < ApplicationController
   def search_params
     params.slice(:dpt)
   end
-
 end

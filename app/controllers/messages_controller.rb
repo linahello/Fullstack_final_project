@@ -15,12 +15,11 @@ class MessagesController < ApplicationController
     @messages = Message.all.order('created_at').where(conversation_id: @conversation.id)
     @message = @conversation.messages.new
     respond_to do |format|
-      format.html { }
-      format.js { }
+      format.html {}
+      format.js {}
     end
-
   end
- 
+
   def new
     @message = @conversation.messages.new
   end
@@ -30,15 +29,15 @@ class MessagesController < ApplicationController
     @messages = Message.all.order('created_at').where(conversation_id: @conversation.id)
     if @message.save
       respond_to do |format|
-        format.html {redirect_to conversation_messages_path(@conversation)}
-        format.js { }
+        format.html { redirect_to conversation_messages_path(@conversation) }
+        format.js {}
       end
     end
   end
 
   private
-  
+
   def message_params
-   params.require(:message).permit(:body, :user_id)
+    params.require(:message).permit(:body, :user_id)
   end
 end
