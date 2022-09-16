@@ -16,7 +16,6 @@ RSpec.describe ArtistProfile, type: :model do
       it 'should not be valid without name' do
         bad_profile_artist = ArtistProfile.create(description: 'je test mon code', zipcode: '31200', city: 'Toulouse', user_id: @user.id)
         expect(bad_profile_artist).not_to be_valid
-        # test très sympa qui permet de vérifier que la fameuse formule user.errors retourne bien un hash qui contient une erreur concernant le first_name. 
         expect(bad_profile_artist.errors.include?(:name)).to eq(true)
       end
     end
