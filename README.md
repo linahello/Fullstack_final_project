@@ -47,7 +47,7 @@ C'est pourquoi nous avons pensé ✨ **Place to Play** ✨, une application gén
 
 [How to acces](#How-to-acces)
 
-[Installation et lancement en Local](#Installation-et-lancement-en-Local)
+[Maquette](#Maquette)
 
 [Executive Summary](#Executive-Summary)
 
@@ -77,24 +77,11 @@ C'est pourquoi nous avons pensé ✨ **Place to Play** ✨, une application gén
 
 </br>
 
-## Installation et lancement en Local
+## Maquette 
+↳ [En ligne](https://docs.google.com/document/d/1E2NAPL6D3QoXMMCdR_7v6A5eSiC2n4lCCO-sQU9rwYY/edit?usp=sharing)
 
-Avant de lancer l'application, faire :
+</br>
 
-```ruby
-$ bundle install
-$ rails db:create
-$ rails db:migrate
-$ rails db:seed
-```
-
-Puis lancer le server : 
-
-```ruby
-$ rails server
-```
-
-Il ne reste plus qu'à se rendre sur le site en local pour accèder aux fonctionnalités 👉 [Play to Play](http://localhost:3000/)
 
 ## Executive Summary
 
@@ -129,7 +116,7 @@ Il ne reste plus qu'à se rendre sur le site en local pour accèder aux fonction
 
 ## Data Base
 
-↳ Download here : file:///Users/p/Downloads/BDDPlaceToPlay-2.pdf
+↳ [Our Data Base here](https://lucid.app/lucidchart/fed4cdf6-e256-4172-83c2-1410f976a1d5/view?page=0_0&invitationId=inv_0ab1927e-74bf-4cef-86b0-f28b4bfe7ed6#)
 
 
 
