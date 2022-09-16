@@ -49,7 +49,7 @@ class ArtistProfile < ApplicationRecord
     return unless artistpict.attached?
     if artistpict.blob.content_type.start_with? 'image/'
       if artistpict.blob.byte_size > 5.megabytes
-        errors.add(:artistpict, 'size needs to be less than 5MB')
+        errors.add(:artistpict, "La taille de l'image doit être inférieure à 5MB")
         artistpict.purge
       else
         resize_image
