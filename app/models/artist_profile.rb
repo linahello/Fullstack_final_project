@@ -56,7 +56,7 @@ class ArtistProfile < ApplicationRecord
       end
     else
       artistpict.purge
-      errors.add(:artistpict, 'needs to be an image')
+      errors.add(:artistpict, 'doit être un image')
     end
   end
 end
