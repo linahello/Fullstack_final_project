@@ -28,5 +28,4 @@ class Performance < ApplicationRecord
       self.description.byteslice(0, 87)+"..."
     end
   end
-
 end

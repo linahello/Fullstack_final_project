@@ -1,10 +1,10 @@
 class ArtistGenresController < ApplicationController
   def create
     ArtistGenre.create(artist_genre_params)
-  
+
     respond_to do |format|
-      format.html {redirect_to new_artist_genre_path}
-      format.js { }
+      format.html { redirect_to new_artist_genre_path }
+      format.js {}
     end
   end
 
@@ -13,8 +13,8 @@ class ArtistGenresController < ApplicationController
     @artist_genre.destroy
 
     respond_to do |format|
-      format.html {redirect_to new_artist_genre_path}
-      format.js { }
+      format.html { redirect_to new_artist_genre_path }
+      format.js {}
     end
   end
 

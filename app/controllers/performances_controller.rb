@@ -6,9 +6,7 @@ class PerformancesController < ApplicationController
     @performances = Performance.are_future.select { |performance| performance.venue_profile.zip_city == search_params['dpt'] } if search_params['dpt'].present?
   end
 
-  def new
-  end
-  
+  def new; end
 
   def create
     @performance = Performance.new(performance_params)
