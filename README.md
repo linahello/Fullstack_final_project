@@ -142,17 +142,20 @@ C'est pourquoi nous avons pensé ✨ **Place to Play** ✨, une application gén
 - [@xko0](https://github.com/xko0) 
 </br>
 
+## Previews
 
-## Show your support
+### Homepage
 
-[Un Dev A La Mer](http://www.devalamer.fr/)
+<img src="public/homepage.png">
 
-Give us a ⭐ Star on GitHub — it helps!
+### Login page
 
-</br>
+<img src="public/login.png">
 
-### 😂 Here is a random joke that'll make you laugh!
-<div align="center">
+### Messages
 
-![Jokes Card](https://readme-jokes.vercel.app/api)
-</div>
+<img src="public/message_box.png">
+
+### Dashboard
+
+<img src="public/dashboard.png">
